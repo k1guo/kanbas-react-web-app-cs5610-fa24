@@ -230,6 +230,13 @@ export default function Lab1() {
           <option value="FANTASY">Fantasy</option>
         </select>
         <h4>Other HTML field types</h4>
+        <label htmlFor="wd-text-fields-email"> Email: </label>
+        <input
+          type="email"
+          placeholder="jdoe@somewhere.com"
+          id="wd-text-fields-email"
+        />
+        <br />
         <label htmlFor="wd-text-fields-salary-start"> Starting salary:</label>
         <input
           type="number"
@@ -248,13 +255,7 @@ export default function Lab1() {
           defaultValue="4"
         />
         <br />
-        <label htmlFor="wd-text-fields-email"> Email: </label>
-        <input
-          type="email"
-          placeholder="jdoe@somewhere.com"
-          id="wd-text-fields-email"
-        />
-        <br />
+       
         <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
         <input type="date" id="wd-text-fields-dob" defaultValue="2000-01-21" />
         <br />

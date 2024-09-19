@@ -9,7 +9,7 @@ import TOC from "./TOC";
 export default function Labs(){
     return (
         <div>
-            <h1>Welcome to Keying Guo's Web Dev</h1>
+            <h1>Welcome to Keying Guo's Web Dev (SEC 02)</h1>
             <h1>Labs</h1>
             <TOC/>
             <Routes>
