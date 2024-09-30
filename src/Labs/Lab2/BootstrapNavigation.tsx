@@ -1,3 +1,4 @@
+// use tabs from bootstrap 创建一个简单的导航选项卡 bootstrap cards
 export default function BootstrapNavigation() {
   return (
     <div>
@@ -26,6 +27,8 @@ export default function BootstrapNavigation() {
           </li>
         </ul>
       </div>
+
+      
       <div id="wd-css-navigating-with-cards">
         <h2>Cards</h2>
         <div className="card" style={{ width: "18rem" }}>

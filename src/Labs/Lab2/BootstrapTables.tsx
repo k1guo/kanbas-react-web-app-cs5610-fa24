@@ -39,7 +39,7 @@ export default function BootstrapTables() {
             </tr>
           </tfoot>
         </table>
-      </div>
+      </div> 
       <div id="wd-css-responsive-tables">
         <h2>Responsive tables</h2>
         <div className="table-responsive">

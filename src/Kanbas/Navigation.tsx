@@ -30,7 +30,7 @@ export default function KanbasNavigation() {
       >
         <img src="/images/NEU.png" width="75px" />
       </a>
-      <br />
+      {/* <br /> */}
       <Link
         to="/Kanbas/Account"
         id="wd-account-link"

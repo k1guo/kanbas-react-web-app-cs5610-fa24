@@ -17,6 +17,8 @@ export default function BootstrapForms() {
         <label htmlFor="textarea1" className="form-label">
           Example textarea
         </label>
+        {/* row=3 present textarea's height */}
+        {/*  form-control is a bootstrap css class used to style form elements*/}
         <textarea className="form-control" id="textarea1" rows={3}></textarea>
       </div>
       <div id="wd-css-styling-dropdowns">
@@ -30,6 +32,7 @@ export default function BootstrapForms() {
       </div>
       <div id="wd-css-styling-switches">
         <h3>Switches</h3>
+        {/* form-check-input applies Bootstrap's predefined styles to checkboxes and radio buttons */}
         <div className="form-check form-switch">
           <input className="form-check-input" type="checkbox" id="switch1" />
           <label className="form-check-label" htmlFor="switch1">
@@ -87,6 +90,9 @@ export default function BootstrapForms() {
       </div>
       <div id="wd-css-styling-addons">
         <h3>Addons</h3>
+        {/* <span> 元素用作输入框的附加文本，即所谓的**"附加组件"**。
+        通过 Bootstrap 提供的 input-group-text 类，这些 span 元素与输入框组合在一起，
+        形成一个统一的输入组。 */}
         <div className="input-group mb-3">
           <span className="input-group-text">$</span>
           <span className="input-group-text">0.00</span>
@@ -113,6 +119,9 @@ export default function BootstrapForms() {
             />
           </div>
         </div>
+        {/* mb3, m means margin, n means bottom. 
+        mb3 create a distance between password div and bio div 
+        distance from 0-5 5 is largest */}
         <div className="mb-3 row">
           <label htmlFor="password1" className="col-sm-2 col-form-label">
             Password
@@ -134,6 +143,8 @@ export default function BootstrapForms() {
           </div>
         </div>
       </div>
+      {/* 下面这个responsive form 是一个标准的form， 交互式表单，能够提交数据*/}
+      {/* 上面那个responsive form 更像是一个静态的布局示例 */}
       <div id="wd-css-responsive-forms-2">
         <h3>Responsive forms</h3>
         <form>
@@ -206,6 +217,7 @@ export default function BootstrapForms() {
               </div>{" "}
             </div>
           </div>
+          {/* btn-primary 是 Bootstrap 提供的一个按钮样式类 */}
           <button type="submit" className="btn btn-primary">
             Sign in{" "}
           </button>

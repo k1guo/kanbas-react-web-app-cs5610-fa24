@@ -1,7 +1,11 @@
 import { useLocation } from "react-router";
+// TOC means table of contents 目录
 export default function TOC() {
+  // useLocation 是来自 react-router 的一个钩子，用来获取当前浏览器地址栏的路径（pathname）。
+  // const { pathname } = useLocation();：通过这个钩子，可以访问当前页面的 URL 路径，用于确定用户目前所在的页面。
   const { pathname } = useLocation();
   return (
+    // use pills from bootstrap, pills is a css style, 
     <ul className="nav nav-pills">
       <li className="nav-item">
         <a id="wd-a" href="#/Labs" className="nav-link">
