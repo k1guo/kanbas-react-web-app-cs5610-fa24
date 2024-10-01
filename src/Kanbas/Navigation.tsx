@@ -13,11 +13,14 @@ export default function KanbasNavigation() {
       // bottom-0 和底部的距离为0
       // top-0 和顶部的距离为0
       // z-2 - applies z-index: 2 which brings the element above other elements with a lower z-index.
+      // d-none 在所有屏幕尺寸下都隐藏元素
+      // d-md-block  在中等一集更大屏幕尺寸上显示该元素 >= 768px
       className="list-group rounded-0 position-fixed
          bottom-0 top-0 d-none d-md-block bg-black z-2"
     >
       {/* <a> 用于外部链接，导航到一个外部网站 */}
       {/* <a> 标签会触发整个页面的刷新，并导航到新的url */}
+      {/* border-0 没有边框，移除边框 */}
       <a
         id="wd-neu-link"
         target="_blank"
@@ -34,6 +37,7 @@ export default function KanbasNavigation() {
         id="wd-account-link"
         className="list-group-item text-center border-0 bg-black text-white"
       >
+        {/* fs 代表 font-size，用于设置字体大小。 1 表示该字体大小的具体值。 */}
         <FaRegCircleUser className="fs-1 text text-white" />
         <br />
         Account{" "}

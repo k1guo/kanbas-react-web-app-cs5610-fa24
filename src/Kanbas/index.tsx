@@ -11,6 +11,7 @@ export default function Kanbas() {
     <div id="wd-kanbas">
       {/* <h1>Kanbas</h1> */}
       <KanbasNavigation />
+      {/* p-3 means padding's value is 3 */}
       <div className="wd-main-content-offset p-3">
         <Routes>
           <Route path="/" element={<Navigate to="Account" />} />

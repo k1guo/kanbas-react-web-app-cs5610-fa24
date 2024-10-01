@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 export default function CoursesNavigation() {
   return (
+    // list-group-item 变成表格 给这些全都框起来
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
       <Link id="wd-course-home-link"    to="/Kanbas/Courses/1234/Home"
       className="list-group-item active border border-0">Home</Link>
