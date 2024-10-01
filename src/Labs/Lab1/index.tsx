@@ -255,11 +255,17 @@ export default function Lab1() {
           defaultValue="4"
         />
         <br />
-       
         <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
         <input type="date" id="wd-text-fields-dob" defaultValue="2000-01-21" />
         <br />
         {/* </form> */}
+        <h4>Anchor tag</h4>
+        Please
+        <a id="wd-lipsum" href="https://www.lipsum.com">
+          click here
+        </a>
+        to get dummy text
+        <br />
       </div>
     </div>
   );

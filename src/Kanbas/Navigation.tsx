@@ -7,21 +7,17 @@ import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 
 export default function KanbasNavigation() {
   return (
-    // <div id="wd-kanbas-navigation">
-    //   <a href="https://www.northeastern.edu/" id="wd-neu-link" target="_blank">Northeastern</a><br/>
-    //   <Link to="/Kanbas/Account" id="wd-account-link">Account</Link><br/>
-    //   <Link to="/Kanbas/Dashboard" id="wd-dashboard-link">Dashboard</Link><br/>
-    //   <Link to="/Kanbas/Courses" id="wd-course-link">Courses</Link><br/>
-    //   <Link to="/Kanbas/Calendar" id="wd-calendar-link">Calendar</Link><br/>
-    //   <Link to="/Kanbas/Inbox" id="wd-inbox-link">Inbox</Link><br/>
-    //   <Link to="/Labs" id="wd-labs-link">Labs</Link><br/>
-    // </div>
     <div
       id="wd-kanbas-navigation"
-      style={{ width: 120 }}
+      style={{ width: 105 }}
+      // bottom-0 和底部的距离为0
+      // top-0 和顶部的距离为0
+      // z-2 - applies z-index: 2 which brings the element above other elements with a lower z-index.
       className="list-group rounded-0 position-fixed
          bottom-0 top-0 d-none d-md-block bg-black z-2"
     >
+      {/* <a> 用于外部链接，导航到一个外部网站 */}
+      {/* <a> 标签会触发整个页面的刷新，并导航到新的url */}
       <a
         id="wd-neu-link"
         target="_blank"
@@ -30,7 +26,9 @@ export default function KanbasNavigation() {
       >
         <img src="/images/NEU.png" width="75px" />
       </a>
-      {/* <br /> */}
+      <br />
+      {/* <Link>标签是React Router提供的组件 */}
+      {/* 用于在React应用内部导航时使用，可以避免页面刷新 */}
       <Link
         to="/Kanbas/Account"
         id="wd-account-link"
