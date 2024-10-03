@@ -27,52 +27,52 @@ export default function Dashboard() {
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
-            imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
-            buttonText="Start Learning"
-            linkUrl="/Kanbas/Courses/1234/Home"
+           title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
+           imageUrl="images/reactjs.jpg"
+           section="CS5610 20595 202510"
+           buttonText="Start Learning"
+           linkUrl="/Kanbas/Courses/1234/Home"
           />
 
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
           <CourseNavCard
-            title="React JS Course"
+            title="CS5610 20595 Web Development SEC 02 Fall 2024 [VTL-2-OL]"
             imageUrl="images/reactjs.jpg"
-            section="Learn to build powerful web applications with React.js."
+            section="CS5610 20595 202510"
             buttonText="Start Learning"
             linkUrl="/Kanbas/Courses/1234/Home"
           />
