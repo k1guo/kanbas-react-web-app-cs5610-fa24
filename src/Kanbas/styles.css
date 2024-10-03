@@ -62,3 +62,19 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
   color: black; /* 自定义颜色，替换为你想要的颜色 */
   text-decoration: none; /* 去掉下划线 */
 }
+
+
+
+@media (min-width: 768px) {
+  #wd-account-screen .wd-account-content-offset {
+    padding-left: 40px !important;
+  }
+}
+
+
+@media (min-width: 768px) {
+  #assignment-editScreen-downPart .wd-assignemnt-editScreen-offset {
+    padding-left: 200px !important;
+  }
+}
+

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 export default function Profile() {
   return (
-    <div id="wd-profile-screen">
+    <div className="row">
+    <div 
+    id="wd-profile-screen" 
+    className="col-lg-6 col-md-5 col-sm-10"
+    style={{ width: "330px" }}
+    >
       <h3>Profile</h3>
       <input id="wd-username" value="alice" placeholder="username" className="form-control mb-2"/>
 
@@ -35,6 +40,7 @@ export default function Profile() {
       >
         Signout
       </button>
+    </div>
     </div>
   );
 }

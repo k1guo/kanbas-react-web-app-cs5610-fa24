@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 export default function Signin() {
   return (
-    <div id="wd-signin-screen col">
+    <div className="row">
+    <div id="wd-signin-screen" className="col-lg-6 col-md-5 col-sm-10"  style={{ width: "330px" }}>
       <h3>Sign in</h3>
       <input
         id="wd-username"
@@ -27,6 +28,7 @@ export default function Signin() {
       <Link id="wd-signup-link" to="/Kanbas/Account/Signup">
         Sign up
       </Link>
+    </div>
     </div>
   );
 }

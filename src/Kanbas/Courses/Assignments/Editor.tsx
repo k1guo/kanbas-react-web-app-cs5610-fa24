@@ -26,9 +26,10 @@ export default function AssignmentEditor() {
           </textarea>
         </div>
       </div>
-
-      <div className="row ">
-        <div className="row mb-3 ">
+      
+<div id = "assignment-editScreen-downPart">
+      <div  className="wd-assignemnt-editScreen-offset">
+        <div className="row mb-3">
           <label htmlFor="wd-points" className="col-sm-2 col-form-label ">
             Points{" "}
           </label>
@@ -235,6 +236,7 @@ export default function AssignmentEditor() {
             Save
           </button>
         </div>
+      </div>
       </div>
     </form>
   );

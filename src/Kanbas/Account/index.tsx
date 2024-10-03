@@ -12,11 +12,11 @@ export default function Account() {
       <hr />
       <div className="d-flex">
 
-      <div className="d-none d-md-block">
+      <div className="d-none d-md-block ">
         <AccountNavigation />
       </div>
       {/* layout things horizontally */}
-      <div className="flex-fill">
+      <div className="flex-fill wd-account-content-offset">
         <Routes>
           <Route
                 path="/"
