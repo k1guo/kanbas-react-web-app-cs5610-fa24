@@ -1,9 +1,39 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { courses } from "../Database";
+import { useParams } from "react-router";
 export default function CoursesNavigation() {
+  const { cid } = useParams();
+  const course = courses.find((course) => course._id === cid);
+  const { pathname } = useLocation();
+  const links = [
+    "Home",
+    "Modules",
+    "Piazza",
+    "Zoom",
+    "Assignments",
+    "Quizzes",
+    "Grades",
+    "People",
+  ];
+
   return (
     // list-group-item 变成表格 给这些全都框起来
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
-      <Link id="wd-course-home-link"    to="/Kanbas/Courses/1234/Home"
+      {links.map((link) => (
+        <Link
+          id={`wd-course-home-link-${link}`}
+          to={`/Kanbas/Courses/${cid}/${link}`}
+          className={`list-group-item border border-0 
+              ${
+                pathname.includes(link) ? "text-black bg-white active" : "text-danger "
+              }`}
+        >
+          {link}
+        </Link>
+      ))}
+
+      {/* <Link id="wd-course-home-link"    to="/Kanbas/Courses/1234/Home"
       className="list-group-item active border border-0">Home</Link>
       <Link id="wd-course-modules-link" to="/Kanbas/Courses/1234/Modules"
       className="list-group-item text-danger border border-0">Modules
@@ -22,5 +52,7 @@ export default function CoursesNavigation() {
       className="list-group-item text-danger border border-0">Grades</Link>
       <Link id="wd-course-people-link"  to="/Kanbas/Courses/:cid/People"
       className="list-group-item text-danger border border-0">People</Link>
+ */}
     </div>
-);}
+  );
+}

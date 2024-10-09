@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 
-
 export default function KanbasNavigation() {
+  const { pathname } = useLocation();
+  const links = [
+    { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
+    { label: "Courses", path: "/Kanbas/Dashboard", icon: LiaBookSolid },
+    { label: "Calendar", path: "/Kanbas/Calendar", icon: IoCalendarOutline },
+    { label: "Inbox", path: "/Kanbas/Inbox", icon: FaInbox },
+    { label: "Labs", path: "/Labs", icon: LiaCogSolid },
+  ];
+
   return (
     <div
       id="wd-kanbas-navigation"
@@ -16,7 +25,7 @@ export default function KanbasNavigation() {
       // d-none 在所有屏幕尺寸下都隐藏元素
       // d-md-block  在中等一集更大屏幕尺寸上显示该元素 >= 768px
       className="list-group rounded-0 position-fixed
-         bottom-0 top-0 d-none d-md-block bg-black z-2"
+         bottom-0 top-0 d-none d-md-block bg-black z-2 ml-2"
     >
       {/* <a> 用于外部链接，导航到一个外部网站 */}
       {/* <a> 标签会触发整个页面的刷新，并导航到新的url */}
@@ -28,22 +37,56 @@ export default function KanbasNavigation() {
         className="list-group-item bg-black border-0 text-center"
       >
         <img src="/images/NEU.png" width="75px" />
-      </a>
-      <br />
+        </a>
+        <Link
+          to="/Kanbas/Account"
+          className={`list-group-item text-center border-0 bg-black
+            ${
+              pathname.includes("Account")
+                ? "bg-white text-danger"
+                : "bg-black text-white"
+            }` }
+        >
+          <FaRegCircleUser
+            className={`fs-1 ${
+              pathname.includes("Account") ? "text-danger" : "text-white"
+            }`}
+          />
+          <br />
+          Account
+        </Link>
+        {links.map((link) => (
+          <Link
+            key={link.path}
+            to={link.path}
+            className={`list-group-item text-center border-0 bg-black 
+              ${
+                pathname.includes(link.label)
+                  ? "text-danger bg-white"
+                  : "text-white bg-black"
+              }`}
+          >
+            {link.icon({ className: "fs-1 text-danger" })}
+            <br />
+            {link.label}
+          </Link>
+        ))}
+  
+
       {/* <Link>标签是React Router提供的组件 */}
       {/* 用于在React应用内部导航时使用，可以避免页面刷新 */}
-      <Link
+      {/* <Link
         to="/Kanbas/Account"
         id="wd-account-link"
         className="list-group-item text-center border-0 bg-black text-white"
       >
         {/* fs 代表 font-size，用于设置字体大小。 1 表示该字体大小的具体值。 */}
-        <FaRegCircleUser className="fs-1 text text-white" />
+        {/* <FaRegCircleUser className="fs-1 text text-white" />
         <br />
         Account{" "}
-      </Link>
-      <br />
-      <Link
+      </Link>  */}
+
+      {/* <Link
         to="/Kanbas/Dashboard"
         id="wd-dashboard-link"
         className="list-group-item text-center border-0
@@ -52,9 +95,9 @@ export default function KanbasNavigation() {
         <AiOutlineDashboard className="fs-1 text-danger" />
         <br />
         Dashboard{" "}
-      </Link>
-      <br />
-      <Link
+      </Link> */}
+
+      {/* <Link
         to="/Kanbas/Dashboard"
         id="wd-course-link"
         className="list-group-item text-white
@@ -74,9 +117,9 @@ export default function KanbasNavigation() {
         <IoCalendarOutline className="fs-1 text-danger" />
         <br />
         Calendar{" "}
-      </Link>
-      <br />
-      <Link
+      </Link> */}
+
+      {/* <Link
         to="/Kanbas/Inbox"
         id="wd-inbox-link"
         className="list-group-item text-white
@@ -85,9 +128,9 @@ export default function KanbasNavigation() {
         <FaInbox className="fs-1 text-danger" />
         <br />
         Inbox{" "}
-      </Link>
-      <br />
-      <Link
+      </Link> */}
+
+      {/* <Link
         to="/Labs"
         id="wd-labs-link"
         className="list-group-item text-white
@@ -96,9 +139,13 @@ export default function KanbasNavigation() {
         <LiaCogSolid className="fs-1 text-danger" />
         <br />
         Labs{" "}
-      </Link>
-      <br />
+      </Link> */}
+
       {/* complete styling the rest of the links */}
-    </div>
+     </div>
+
+
+
+
   );
 }
