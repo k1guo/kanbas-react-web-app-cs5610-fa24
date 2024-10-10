@@ -4,8 +4,14 @@ import AssignmentControlButtons from "./AssignmentControlButtons";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
 import AssignmentSectionButtons from "./AssignmentSectionButtons";
 import { FaEdit } from "react-icons/fa";
+import { useParams } from "react-router";
+import * as db from "../../Database";
+
 export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = db.assignments;
   return (
+  
     <div id="wd-assignments">
       <div>
         <AssignmentControls />
@@ -14,6 +20,7 @@ export default function Assignments() {
       <br />
 
       <ul id="wd-assignment-list" className="list-group rounded-0">
+     
         <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray ">
           <div className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center">
@@ -42,6 +49,10 @@ export default function Assignments() {
           </div>
         </li>
 
+        {assignments
+      .filter((assignment: any) => assignment.course === cid)
+      .map((assignment: any) => (  
+
         <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
           <div className="assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
             {/* 左边的Icon */}
@@ -56,16 +67,18 @@ export default function Assignments() {
             </div>
 
             {/* 中间的三行内容 */}
+       
             <div
               className="assignment-details flex-grow-1 ps-1"
               style={{ fontSize: "16px" }}
             >
               <a
                 className="wd-assignment-link"
-                href="#/Kanbas/Courses/1234/Assignments/123"
+                href={`#/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`}
               >
                <b>
-               A1 - ENV + HTML
+            {assignment.title}
+    
                </b>
               </a>
               <br />
@@ -81,9 +94,19 @@ export default function Assignments() {
             </div>
           </div>
         </li>
+                    ))}
+     
+
+
+
+
+
+
+
+     
+{/* 
 
         <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
-          {/* Complete On Your Own */}
           <div className="assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
             <div className="icon-left">
               <BsGripVertical className="me-1" />
@@ -118,6 +141,11 @@ export default function Assignments() {
           </div>
         </li>
 
+
+ */}
+
+
+{/* 
         <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
           <div className="wd-lesson assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
             <div className="icon-left">
@@ -152,6 +180,9 @@ export default function Assignments() {
             </div>
           </div>
         </li>
+ */}
+
+
       </ul>
     </div>
   );
