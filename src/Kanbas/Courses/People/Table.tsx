@@ -40,13 +40,13 @@ export default function PeopleTable() {
               )
             )
             .map((user: any) => (
-              <tr>
+              <tr key={user._id}>
                 <td className="wd-full-name text-nowrap" key={user._id}>
                   <FaUserCircle className="me-2 fs-1 text-secondary" />
                   <span className="wd-first-name">
-                    {user._id.firstName}
+                    {user.firstName}
                   </span>{" "}
-                  <span className="wd-last-name">{user._id.lastName}</span>
+                  <span className="wd-last-name">{user.lastName}</span>
                 </td>
                 <td className="wd-login-id">{user.loginId}</td>
                 <td className="wd-section">{user.section}</td>
