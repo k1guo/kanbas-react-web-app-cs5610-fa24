@@ -239,7 +239,8 @@ export default function AssignmentEditor() {
               </button>
             </Link>
             <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
-              <button id="wd-submit" className="btn btn-md btn-danger me-1">
+            {/* onClick={addAssignment} */}
+              <button id="wd-submit" className="btn btn-md btn-danger me-1" >
                 Save
               </button>
             </Link>

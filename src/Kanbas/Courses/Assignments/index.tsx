@@ -6,21 +6,37 @@ import AssignmentSectionButtons from "./AssignmentSectionButtons";
 import { FaEdit } from "react-icons/fa";
 import { useParams } from "react-router";
 import * as db from "../../Database";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addAssignment,
+  editAssignment,
+  updateAssignment,
+  deleteAssignment,
+} from "./reducer";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
+  const [assignmentName, setAssignmentName] = useState("");
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
   return (
-  
     <div id="wd-assignments">
       <div>
-        <AssignmentControls />
+        <AssignmentControls
+          // assignmentName={assignmentName}
+          // assignmentCourse={assignments.course}
+          // setAssignmentName={setAssignmentName}
+          // addAssignment={() => {
+          //   dispatch(addAssignment({ name: assignmentName, course: cid }));
+          //   setAssignmentName("");
+          // }}
+        />
       </div>
       <br />
       <br />
 
       <ul id="wd-assignment-list" className="list-group rounded-0">
-     
         <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray ">
           <div className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center">
@@ -32,7 +48,6 @@ export default function Assignments() {
               ASSIGNMENTS
             </div>
             <div className="d-flex align-items-center">
-              
               <div
                 className="me-2"
                 style={{
@@ -50,51 +65,46 @@ export default function Assignments() {
         </li>
 
         {assignments
-      .filter((assignment: any) => assignment.course === cid)
-      .map((assignment: any) => (  
+          .filter((assignment: any) => assignment.course === cid)
+          .map((assignment: any) => (
+            <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
+              <div className="assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
+                {/* 左边的Icon */}
+                <div className="icon-left">
+                  <BsGripVertical className="me-1" />
+                </div>
+                <div className="icon-left">
+                  <FaEdit
+                    className="me-3"
+                    style={{ fontSize: "20px", color: "green" }}
+                  />
+                </div>
+                {/* 中间的三行内容 */}
 
-        <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
-          <div className="assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
-            {/* 左边的Icon */}
-            <div className="icon-left">
-              <BsGripVertical className="me-1" />
-            </div>
-            <div className="icon-left">
-              <FaEdit
-                className="me-3"
-                style={{ fontSize: "20px", color: "green" }}
-              />
-            </div>
+                <div
+                  className="assignment-details flex-grow-1 ps-1"
+                  style={{ fontSize: "16px" }}
+                >
+                  <a
+                    className="wd-assignment-link"
+                    href={`#/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`}
+                  >
+                    <b>{assignment.title}</b>
+                  </a>
+                  <br />
+                  <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
+                  <b>Not available until</b> May6 at 12:00am |
+                  <br />
+                  <b>Due</b> May 13 at 11:59pm | 100 pts
+                </div>
 
-            {/* 中间的三行内容 */}
-       
-            <div
-              className="assignment-details flex-grow-1 ps-1"
-              style={{ fontSize: "16px" }}
-            >
-              <a
-                className="wd-assignment-link"
-                href={`#/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`}
-              >
-               <b>
-            {assignment.title}
-    
-               </b>
-              </a>
-              <br />
-              <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
-              <b>Not available until</b> May6 at 12:00am |
-              <br />
-              <b>Due</b> May 13 at 11:59pm | 100 pts 
-            </div>
-
-            {/* 右边的Icon */}
-            <div className="icon-right">
-              <AssignmentSectionButtons />
-            </div>
-          </div>
-        </li>
-                    ))}
+                {/* 右边的Icon */}
+                <div className="icon-right">
+                  <AssignmentSectionButtons />
+                </div>
+              </div>
+            </li>
+          ))}
       </ul>
     </div>
   );

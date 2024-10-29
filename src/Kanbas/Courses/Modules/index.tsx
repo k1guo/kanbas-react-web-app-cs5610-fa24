@@ -7,6 +7,7 @@ import * as db from "../../Database";
 import React, { useState } from "react";
 import { addModule, editModule, updateModule, deleteModule } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
+import ProtectedFaculty from "../../ProtectedFaculty";
 
 export default function Modules() {
   const { cid } = useParams();
@@ -56,6 +57,8 @@ export default function Modules() {
                     value={module.name}
                   />
                 )}
+
+                <ProtectedFaculty>
                 <ModuleControlButtons
                   moduleId={module._id}
                   deleteModule={(moduleId) => {
@@ -65,6 +68,7 @@ export default function Modules() {
                     dispatch(editModule(moduleId))
                   }}
                 />
+                </ProtectedFaculty>
               </div>
               {module.lessons && (
                 <ul className="wd-lessons list-group rounded-0">
