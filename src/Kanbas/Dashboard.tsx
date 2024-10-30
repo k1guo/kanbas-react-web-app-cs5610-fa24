@@ -13,8 +13,6 @@ export default function Dashboard({
   deleteCourse,
   updateCourse,
 }: {
-  // const { currentUser } = useSelector((state: any) => state.accountReducer);
-  // const { enrollments } = db;
   courses: any[];
   course: any;
   setCourse: (course: any) => void;
@@ -24,6 +22,7 @@ export default function Dashboard({
 }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { enrollments } = db;
+
   return (
     <div id="wd-dashboard">
       {/* <hr /> 是 Kanbas Dashboard 下面那一行分界线*/}
@@ -31,6 +30,7 @@ export default function Dashboard({
       <ProtectedFaculty>
         <h5>
           New Course
+        <pre>{JSON.stringify(currentUser, null, 2)}</pre>
           <button
             className="btn btn-primary float-end"
             id="wd-add-new-course-click"
@@ -49,12 +49,12 @@ export default function Dashboard({
         </h5>
         <br />
         <input
-          defaultValue={course.name}
+          value={course.name}
           className="form-control mb-2"
           onChange={(e) => setCourse({ ...course, name: e.target.value })}
         />
         <textarea
-          defaultValue={course.description}
+          value={course.description}
           className="form-control"
           onChange={(e) =>
             setCourse({ ...course, description: e.target.value })
@@ -78,13 +78,12 @@ export default function Dashboard({
         > */}
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses
-            .filter((course) =>
-              enrollments.some(
-                (enrollment) =>
-                  enrollment.user === currentUser._id &&
-                  enrollment.course === course._id
-              )
-            )
+          .filter((course) =>
+            enrollments.some(
+              (enrollment) =>
+                enrollment.user === currentUser._id &&
+                enrollment.course === course._id
+               ))
             .map((course) => (
               <div
                 className="wd-dashboard-course col"
@@ -96,7 +95,6 @@ export default function Dashboard({
                     className="wd-dashboard-course-link text-decoration-none text-dark"
                   >
                     <img src={course.image} width="100%" height={160} />
-                    {/* <img src="/images/reactjs.jpg" width="100%" height={160} /> */}
                     <div className="card-body">
                       <h5 className="wd-dashboard-course-title card-title">
                         {course.name}
@@ -106,8 +104,11 @@ export default function Dashboard({
                         style={{ maxHeight: 100 }}
                       ></p>
                       {course.description}
+                      <br />
+                      <br />
                       <button className="btn btn-primary"> Go </button>
                       <ProtectedFaculty>
+                        {/* The preventDefault() is preventing the default behavior of the button.  */}
                         <button
                           onClick={(event) => {
                             event.preventDefault();

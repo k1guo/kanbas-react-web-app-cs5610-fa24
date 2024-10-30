@@ -1,3 +1,5 @@
+// index.tsx
+
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentControls from "./AssignmentControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
@@ -12,26 +14,31 @@ import {
   addAssignment,
   editAssignment,
   updateAssignment,
-  deleteAssignment,
 } from "./reducer";
 
 export default function Assignments() {
+  
   const { cid } = useParams();
   const [assignmentName, setAssignmentName] = useState("");
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+ 
   const dispatch = useDispatch();
   return (
     <div id="wd-assignments">
       <div>
+      
         <AssignmentControls
-          // assignmentName={assignmentName}
-          // assignmentCourse={assignments.course}
-          // setAssignmentName={setAssignmentName}
-          // addAssignment={() => {
-          //   dispatch(addAssignment({ name: assignmentName, course: cid }));
-          //   setAssignmentName("");
-          // }}
+          assignmentName={assignmentName}
+          assignmentCourse={`${cid}`}
+          setAssignmentName={setAssignmentName}
+          addAssignment={() => {
+            console.log("Dispatching addAssignment with:", assignmentName, cid);
+            dispatch(addAssignment({ title: assignmentName, course: cid}));
+            setAssignmentName("");
+          }}
+
         />
+          
       </div>
       <br />
       <br />
@@ -46,6 +53,7 @@ export default function Assignments() {
                 style={{ fontSize: "8px" }}
               />
               ASSIGNMENTS
+            
             </div>
             <div className="d-flex align-items-center">
               <div
@@ -63,11 +71,15 @@ export default function Assignments() {
             </div>
           </div>
         </li>
-
+        <p>Assignment Name: {assignmentName}</p>
+        <p>Course ID: {cid}</p>
+        <p>Number of assignments: {assignments.filter((assignment: any) => assignment.course === cid).length}</p>
         {assignments
           .filter((assignment: any) => assignment.course === cid)
           .map((assignment: any) => (
+            
             <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
+              
               <div className="assignment-row d-flex wd-lesson p-3 ps-1 align-items-center justify-content-between">
                 {/* 左边的Icon */}
                 <div className="icon-left">

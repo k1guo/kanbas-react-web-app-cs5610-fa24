@@ -1,28 +1,31 @@
+// AssignmentControls.tsx
+
 import { FaPlus } from "react-icons/fa6";
 import { PiMagnifyingGlassThin } from "react-icons/pi";
 import ProtectedFaculty from "../../ProtectedFaculty";
 // import AssignmentEditor from "./AssignmentEditor";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import AssignmentEditor from "./Editor";
+import { Link } from "react-router-dom";
 
-export default function AssignmentControls(
-//   {
-//     assignmentName,
-//     assignmentCourse,
-//     setAssignmentName,
-//     addAssignment,
-//   }: {
-//     assignmentName: string;
-//     assignmentCourse: string;
-//     setAssignmentName: (title: string) => void;
-//     addAssignment: () => void;
-//   },
-) {
-//     const navigate = useNavigate();
-//     const handleAddAssignmentButtonClick = () => {
-//       navigate(`/Kanbas/Courses/RS102/Assignments/A201`); 
-//     };
-    
+export default function AssignmentControls({
+  assignmentName,
+  assignmentCourse,
+  setAssignmentName,
+  addAssignment,
+}: {
+  assignmentName: string;
+  assignmentCourse: string;
+  setAssignmentName: (title: string) => void;
+  addAssignment: () => void;
+}) {
+  const { cid } = useParams();
+  const navigate = useNavigate();
+  const handleAddAssignmentButtonClick = () => {
+    const newId = new Date().getTime().toString();
+    navigate(`/Kanbas/Courses/${cid}/Assignments/${newId}`);
+  };
+
   return (
     <div className="d-flex justify-content-between align-items-center">
       <div className="search-container">
@@ -45,30 +48,25 @@ export default function AssignmentControls(
             />
             Group
           </button>
-{/* data-bs-toggle 和 data-bs-target 是 Bootstrap 用来控制模态框、下拉菜单、工具提示等交互功能的属性。 */}
+          {/* data-bs-toggle 和 data-bs-target 是 Bootstrap 用来控制模态框、下拉菜单、工具提示等交互功能的属性。 */}
+
           <button
             id="wd-add-assignment"
             className="btn btn-md btn-danger me-1 "
-            // onClick={handleAddAssignmentButtonClick}
-    
+            onClick={handleAddAssignmentButtonClick}
           >
-            {/* <a id="wd-k" href="#/Kanbas" className="nav-link">
-          Kanbas
-        </a> */}
             <FaPlus
               className="position-relative me-1"
               style={{ bottom: "1px" }}
             />
             Assignment
           </button>
-
         </div>
       </ProtectedFaculty>
       <AssignmentEditor
-       
-        // moduleName={assignmentName}
-        // setModuleName={setAssignmentName}
-        // addAssignment={addAssignment}
+           addAssignment={addAssignment}
+           assignmentName={assignmentName}
+           setAssignmentName={setAssignmentName}
       />
     </div>
   );

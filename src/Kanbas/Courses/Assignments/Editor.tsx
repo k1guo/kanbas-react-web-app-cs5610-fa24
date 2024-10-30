@@ -1,7 +1,23 @@
+
+// Editor.tsx
 import {useParams} from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
-export default function AssignmentEditor() {
+import EditorControlButtons from "./EditorControlButtons";
+import { addAssignment } from "./reducer";
+export default function AssignmentEditor(
+  {
+    addAssignment,
+    assignmentName,
+    setAssignmentName,
+
+  }:
+  { addAssignment: () => void;
+    assignmentName: string;
+    setAssignmentName: (title: string) => void;
+
+}
+) {
   const { cid, assignmentId } = useParams();
   const assignment = db.assignments.find(
     (assignment) => assignment._id === assignmentId
@@ -15,9 +31,12 @@ export default function AssignmentEditor() {
         <div className="mb-3">
           <input
             id="wd-name"
-            value={`${assignment && assignment.title}`}
+            value={assignment && assignment.title}
+            placeholder="New Assignment Name"
             className="form-control col"
+            onChange={(e) => setAssignmentName(e.target.value)}
           />
+
         </div>
 
         <div>
@@ -26,8 +45,10 @@ export default function AssignmentEditor() {
             cols={50}
             rows={15}
             className="form-control ml-2 col"
+            placeholder="New Assignment Description"
+          
           >
-            {`${assignment && assignment.description}`}
+            {assignment && assignment.description}
           </textarea>
         </div>
       </div>
@@ -43,7 +64,7 @@ export default function AssignmentEditor() {
                 type="number"
                 className="form-control"
                 id="wd-points"
-                value={`${assignment && assignment.point}`}
+                value={`${assignment && assignment.point ? assignment.point : 100 }`}
               />
             </div>{" "}
           </div>
@@ -231,21 +252,10 @@ export default function AssignmentEditor() {
         </div>
 
         <hr />
-        <div className="row">
-          <div className="col text-end">
-            <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
-              <button id="wd-cancel" className="btn btn-md btn-secondary me-1">
-                Cancel{" "}
-              </button>
-            </Link>
-            <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
-            {/* onClick={addAssignment} */}
-              <button id="wd-submit" className="btn btn-md btn-danger me-1" >
-                Save
-              </button>
-            </Link>
-          </div>
-        </div>
+     <EditorControlButtons
+     addAssignment={addAssignment}
+    //  setAssignmentName={setAssignmentName}
+     />
       </div>
     </form>
   );

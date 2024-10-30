@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 
 export default function Labs(){
     return (
+        // The Provider component that makes the state data in the store available
+        //  to all components within the Provider's Body
         <Provider store={store}>
         <div className="container">
             <h1>Welcome to Keying Guo's Web Dev (SEC 02)</h1>

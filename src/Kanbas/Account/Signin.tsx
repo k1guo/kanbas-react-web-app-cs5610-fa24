@@ -49,7 +49,7 @@ export default function Signin() {
              to="/Kanbas/Dashboard"> Sign in </Link>  */}
         <button
         onClick={signin}
-          id="wd-submit?"
+          id="wd-signin-btn"
           className="btn btn-md btn-primary me-1 form-control mb-2"
         >
           Signin

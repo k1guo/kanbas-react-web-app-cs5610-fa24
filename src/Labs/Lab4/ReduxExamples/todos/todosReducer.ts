@@ -4,7 +4,7 @@ const initialState = {
     { id: "1", title: "Learn React" },
     { id: "2", title: "Learn Node" },
   ],
-  todo: { title: "Learn Mongo" },
+  todo: { title: "Learn Mongo" },   
 };
 const todosSlice = createSlice({
   name: "todos",

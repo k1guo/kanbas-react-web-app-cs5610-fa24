@@ -7,12 +7,12 @@ export default function ObjectStateVariable() {
       <pre>{JSON.stringify(person, null, 2)}</pre>
       {/* e.target.value：present current input value. */}
       <input
-        value={person.name}
+        defaultValue={person.name}
         // ...person can make sure only name's value change, other value of person keep same.
         onChange={(e) => setPerson({ ...person, name: e.target.value })}
       />
       <input
-        value={person.age}
+        defaultValue={person.age}
         onChange={(e) =>
           setPerson({ ...person, age: parseInt(e.target.value) })
         }
