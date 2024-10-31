@@ -6,12 +6,14 @@ export default function TodoForm() {
     const dispatch = useDispatch();
     return (
       <li className="list-group-item">
+         <input value={todo.title}
+          onChange={ (e) => dispatch(setTodo({ ...todo, title: e.target.value })) }/>
         <button onClick={() => dispatch(addTodo(todo))}
+        className="btn btn-success"
                 id="wd-add-todo-click"> Add </button>
         <button onClick={() => dispatch(updateTodo(todo))}
-                id="wd-update-todo-click"> Update </button>
-        <input value={todo.title}
-          onChange={ (e) => dispatch(setTodo({ ...todo, title: e.target.value })) }/>
+                id="wd-update-todo-click"
+                className="btn btn-warning"> Update </button>
       </li>
     );
   }

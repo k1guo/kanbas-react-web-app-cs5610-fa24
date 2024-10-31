@@ -13,6 +13,7 @@ export default function Counter() {
           setCount(count + 1);
         }}
         id="wd-counter-up-click"
+        className="btn btn-success"
       >
         Up
       </button>
@@ -21,6 +22,7 @@ export default function Counter() {
           setCount(count - 1);
         }}
         id="wd-counter-down-click"
+        className="btn btn-danger"
       >
         Down
       </button>

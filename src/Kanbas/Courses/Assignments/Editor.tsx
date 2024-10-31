@@ -35,10 +35,10 @@ export default function AssignmentEditor() {
     <form>
       <div id="wd-assignments-editor" className="row mb-3">
 
-      <p>Title: {assignmentName || "New Assignment"}</p>
+      {/* <p>Title: {assignmentName || "New Assignment"}</p>
       <p>Description: {assignmentDescription || "New Description"}</p>
       <p>Course: {cid}</p> 
-      <p>ID: {assignmentId === "new" ? "New Assignment" : assignmentId}</p>
+      <p>ID: {assignmentId === "new" ? "New Assignment" : assignmentId}</p> */}
         <label htmlFor="wd-name" className="col col-form-label">
           Assignment Name
         </label>

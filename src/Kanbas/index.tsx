@@ -15,18 +15,30 @@ export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(db.courses);
   const [course, setCourse] = useState<any>({
     _id: "1234",
-    name: "New Course",
+    name: "",
     number: "New Number",
     startDate: "2023-09-10",
     endDate: "2023-12-15",
+    department: "D123",
+    credits: 4,
+    description: "",
     image:"/images/reactjs.jpg",
-    description: "New Description",
   });
+
   const addNewCourse = () => {
-    const newCourse = { ...course,
-                        _id: new Date().getTime().toString() };
-    setCourses([...courses, { ...course, ...newCourse }]);
+    const newCourse: any ={
+    _id: new Date().getTime().toString(),
+    name: course.name,
+    number: course.number,
+    description: course.description,
+    image:"/images/reactjs.jpg",
+    }
+    setCourses((courses) => [
+      ...courses,
+      newCourse 
+    ]);
   };
+
 
   const deleteCourse = (courseId: any) => {
     setCourses(courses.filter((course) => course._id !== courseId));
@@ -58,7 +70,6 @@ export default function Kanbas() {
               path="/Dashboard"
               element={
                 <ProtectedRoute>
-                  
                   <Dashboard
                     courses={courses}
                     course={course}

@@ -62,7 +62,7 @@ export default function Assignments() {
           </div>
         </li>
    
-        <p>Number of assignments: {assignments.filter((assignment: any) => assignment.course === cid).length}</p>
+        {/* <p>Number of assignments: {assignments.filter((assignment: any) => assignment.course === cid).length}</p> */}
         {assignments
           .filter((assignment: any) => assignment.course === cid)
           .map((assignment: any) => (

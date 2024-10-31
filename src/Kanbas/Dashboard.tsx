@@ -28,6 +28,13 @@ export default function Dashboard({
     (enrollment: any) => enrollment.user === currentUser._id
   );
 
+  // const [course, setCourse] = useState<any>({
+  //   _id: "0", name: "New Course", number: "New Number",
+  //   startDate: "2023-09-10", endDate: "2023-12-15",
+  //   image: "/images/reactjs.jpg", description: "New Description"
+  // });
+
+
   const dispatch = useDispatch();
   const [coursesView, setCoursesView] = useState("0");
 
@@ -82,19 +89,25 @@ export default function Dashboard({
         </h5>
         <br />
         <input
-          value={course.name}
+          value={course.name || ""}
+          placeholder="New Course Name"
           className="form-control mb-2"
           onChange={(e) => setCourse({ ...course, name: e.target.value })}
         />
         <textarea
-          value={course.description}
+          value={course.description || ""}
+          placeholder="New Description"
           className="form-control"
           onChange={(e) =>
             setCourse({ ...course, description: e.target.value })
           }
         />
         <hr />
+
+        {/* <pre>{JSON.stringify(courses, null, 2)}</pre> */}
       </ProtectedFaculty>
+
+
       <ProtectedStudent>
         <h5>
           {coursesView === "none"
@@ -174,6 +187,8 @@ export default function Dashboard({
 
         <hr />
       </ProtectedStudent>
+
+      
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>{" "}
       <hr />
       <div id="wd-dashboard-courses" className="row">
@@ -220,6 +235,8 @@ export default function Dashboard({
                       <br />
                       <br />
                       <button className="btn btn-primary"> Go </button>
+
+
                       <ProtectedFaculty>
                         {/* The preventDefault() is preventing the default behavior of the button.  */}
                         <button
@@ -242,9 +259,10 @@ export default function Dashboard({
                         >
                           Edit
                         </button>
-                      </ProtectedFaculty>
+                        </ProtectedFaculty>
                     </div>
                   </Link>
+                
                 </div>
               </div>
             ))}

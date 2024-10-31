@@ -11,6 +11,7 @@ export default function CounterRedux() {
       <button
         onClick={() => dispatch(increment())}
         id="wd-counter-redux-increment-click"
+        className="btn btn-success"
       >
         {" "}
         Increment{" "}
@@ -18,6 +19,7 @@ export default function CounterRedux() {
       <button
         onClick={() => dispatch(decrement())}
         id="wd-counter-redux-decrement-click"
+        className="btn btn-danger"
       >
         {" "}
         Decrement{" "}
