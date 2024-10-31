@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CourseNavCard from "./CourseNavCard";
 import * as db from "./Database";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProtectedFaculty from "./ProtectedFaculty";
+import ProtectedStudent from "./ProtectedStudent";
+import { enrollCourse, unenrollCourse } from "./enrollReducer";
 
 export default function Dashboard({
   courses,
@@ -20,9 +22,31 @@ export default function Dashboard({
   deleteCourse: (course: any) => void;
   updateCourse: () => void;
 }) {
-  const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const { enrollments } = db;
+  // const { currentUser, enrollments } = useSelector((state) => ({
+  //   currentUser: state.accountReducer.currentUser,
+  //   enrollments: state.coursesReducer.enrollments,
+  // }));
 
+  // 获取当前用户注册的所有课程
+ 
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
+  const userEnrollments = enrollments.filter((enrollment:any) => enrollment.user === currentUser._id);
+
+  const dispatch = useDispatch();
+  const [showAllCourses, setShowAllCourses] = useState(false);
+  const toggleCoursesView = () => {
+    setShowAllCourses((prev) => !prev); // 切换显示课程
+  };
+  const handleEnroll = (courseId : any) => {
+    dispatch(enrollCourse(courseId)); // Dispatch enroll action
+  };
+
+  const handleUnenroll = (courseId : any) => {
+    dispatch(unenrollCourse(courseId)); // Dispatch unenroll action
+  };
+
+ 
   return (
     <div id="wd-dashboard">
       {/* <hr /> 是 Kanbas Dashboard 下面那一行分界线*/}
@@ -30,7 +54,8 @@ export default function Dashboard({
       <ProtectedFaculty>
         <h5>
           New Course
-        <pre>{JSON.stringify(currentUser, null, 2)}</pre>
+         
+          {/* <pre>{JSON.stringify(currentUser, null, 2)}</pre> */}
           <button
             className="btn btn-primary float-end"
             id="wd-add-new-course-click"
@@ -62,6 +87,80 @@ export default function Dashboard({
         />
         <hr />
       </ProtectedFaculty>
+
+
+
+
+
+
+
+
+
+
+
+
+      <ProtectedStudent>
+        <h5>
+          {currentUser._id}
+          {/* {userEnrollments} */}
+        {showAllCourses ? "Show All Courses" : "Show My Courses"}
+          <pre>{JSON.stringify(currentUser, null, 2)}</pre>
+          <pre>{JSON.stringify(userEnrollments, null, 2)}</pre>
+          <button
+            className="btn btn-primary float-end"
+            id="wd-add-new-course-click"
+            onClick={toggleCoursesView}
+          >
+            {" "}
+            Enrollments{" "}
+          </button>
+          <h6>{showAllCourses ? "Available All Courses:" : "My Enrolled Courses:"}</h6>
+        
+          <ul className="list-group">
+            
+          {showAllCourses 
+          ? courses.map((course) => (
+            
+              <li key={course._id} className="list-group-item">
+                <span>{course.name}
+                  {course._id}
+                </span>
+                
+          {     userEnrollments.some((enrollment:any) => enrollment.course === course._id) ?  (
+                  <button 
+                    onClick={() => handleUnenroll(course._id)} // Assuming you have a method to handle unenrolling
+                    className="btn btn-danger btn-sm float-end ms-2"
+                  >
+                    Unenroll
+                  </button>
+                ) : (
+                  <button 
+                    onClick={() => handleEnroll(course._id)} // Method to handle enrolling
+                    className="btn btn-success btn-sm float-end"
+                  >
+                    Enroll
+                  </button>
+                )}
+              </li>
+            ))
+          : courses.filter(course => userEnrollments.some((enrollment:any) => enrollment.course === course._id) ).map((course) => (
+              <li key={course.id} className="list-group-item">
+                <span>{course.name}</span>
+                
+                  <button onClick={() => handleUnenroll(course.id)} className="btn btn-danger btn-sm float-end ms-2">
+                    Unenroll
+                  </button>
+              </li>
+            ))
+        }
+      </ul>
+        
+        
+        </h5>
+        <br />
+
+        <hr />
+      </ProtectedStudent>
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>{" "}
       <hr />
       <div id="wd-dashboard-courses" className="row">
@@ -78,12 +177,13 @@ export default function Dashboard({
         > */}
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses
-          .filter((course) =>
-            enrollments.some(
-              (enrollment) =>
-                enrollment.user === currentUser._id &&
-                enrollment.course === course._id
-               ))
+            .filter((course) =>
+              enrollments.some(
+                (enrollment:any) =>
+                  enrollment.user === currentUser._id &&
+                  enrollment.course === course._id
+              )
+            )
             .map((course) => (
               <div
                 className="wd-dashboard-course col"

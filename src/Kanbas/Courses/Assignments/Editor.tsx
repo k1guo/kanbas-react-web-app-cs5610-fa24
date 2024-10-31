@@ -4,34 +4,48 @@ import {useParams} from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
 import EditorControlButtons from "./EditorControlButtons";
-import { addAssignment } from "./reducer";
-export default function AssignmentEditor(
-  {
-    addAssignment,
-    assignmentName,
-    setAssignmentName,
+import { addAssignment, editAssignment, updateAssignment } from "./reducer";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-  }:
-  { addAssignment: () => void;
-    assignmentName: string;
-    setAssignmentName: (title: string) => void;
-
-}
-) {
+export default function AssignmentEditor() {
   const { cid, assignmentId } = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId
-  );
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const assignment = assignments.find((a: any) => a._id === assignmentId);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [assignmentName, setAssignmentName] = useState(assignment?.title || "");
+  const [assignmentDescription, setAssignmentDescription] = useState(assignment?.description || "");
+  const [assignmentPoint, setAssignmentPoint] = useState(assignment?.point || 100);
+  const [assignmentDueDate, setAssignmentDueDate] = useState(assignment?.dueDate || "");
+  const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState(assignment?.availableFromDate || "");
+  const [assignmentAvailableUntilDate, setAssignmentAvailableUntilDate] = useState(assignment?.availableUntilDate || "");
+  const handleSave = () => {
+    if (assignmentId === "new") {
+      dispatch(addAssignment({ title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
+    } else {
+      dispatch(updateAssignment({ _id: assignmentId, title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
+    }
+    navigate(`/Kanbas/Courses/${cid}/Assignments`); 
+  };
+ 
   return (
     <form>
       <div id="wd-assignments-editor" className="row mb-3">
+
+      <p>Title: {assignmentName || "New Assignment"}</p>
+      <p>Description: {assignmentDescription || "New Description"}</p>
+      <p>Course: {cid}</p> 
+      <p>ID: {assignmentId === "new" ? "New Assignment" : assignmentId}</p>
         <label htmlFor="wd-name" className="col col-form-label">
           Assignment Name
         </label>
         <div className="mb-3">
           <input
             id="wd-name"
-            value={assignment && assignment.title}
+            value={assignmentName|| ""} 
             placeholder="New Assignment Name"
             className="form-control col"
             onChange={(e) => setAssignmentName(e.target.value)}
@@ -46,9 +60,9 @@ export default function AssignmentEditor(
             rows={15}
             className="form-control ml-2 col"
             placeholder="New Assignment Description"
-          
+            onChange={(e) => setAssignmentDescription(e.target.value)}
           >
-            {assignment && assignment.description}
+            {assignment && assignment.description || ""}
           </textarea>
         </div>
       </div>
@@ -64,7 +78,8 @@ export default function AssignmentEditor(
                 type="number"
                 className="form-control"
                 id="wd-points"
-                value={`${assignment && assignment.point ? assignment.point : 100 }`}
+                value={assignmentPoint} 
+                onChange={(e) => setAssignmentPoint(Number(e.target.value) || 0)}
               />
             </div>{" "}
           </div>
@@ -221,8 +236,9 @@ export default function AssignmentEditor(
                 <input
                   type="date"
                   id="wd-due-date"
-                  defaultValue="2000-05-13"
+                  defaultValue={`${assignment && assignment.dueDate}`}
                   className="form-control mb-3"
+                  onChange={(e) => setAssignmentDueDate(e.target.value)}
                 />
 
                 <div className="row">
@@ -231,8 +247,9 @@ export default function AssignmentEditor(
                     <input
                       type="date"
                       id="wd-available-from"
-                      defaultValue={`${assignment && assignment.availableDate}`}
+                      defaultValue={`${assignment && assignment.availableFromDate}`}
                       className="form-control"
+                      onChange={(e) => setAssignmentAvailableFromDate(e.target.value)}
                     />
                   </div>
 
@@ -241,7 +258,8 @@ export default function AssignmentEditor(
                     <input
                       type="date"
                       id="wd-available-until"
-                      defaultValue="2000-05-20"
+                      defaultValue={`${assignment && assignment.availableUntilDate}`}
+                      onChange={(e) => setAssignmentAvailableUntilDate(e.target.value)}
                       className="form-control"
                     />
                   </div>
@@ -252,10 +270,21 @@ export default function AssignmentEditor(
         </div>
 
         <hr />
-     <EditorControlButtons
-     addAssignment={addAssignment}
-    //  setAssignmentName={setAssignmentName}
-     />
+
+        <div className="row">
+        <div className="col text-end">
+          <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
+            <button id="wd-cancel" className="btn btn-md btn-secondary me-1">
+              Cancel{" "}
+            </button>
+          </Link>
+            <button id="wd-submit" className="btn btn-md btn-danger me-1"
+            onClick={ handleSave }
+            >
+              Save
+            </button>
+        </div>
+      </div>
       </div>
     </form>
   );

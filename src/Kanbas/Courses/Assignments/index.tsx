@@ -8,37 +8,27 @@ import AssignmentSectionButtons from "./AssignmentSectionButtons";
 import { FaEdit } from "react-icons/fa";
 import { useParams } from "react-router";
 import * as db from "../../Database";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addAssignment,
-  editAssignment,
-  updateAssignment,
+  deleteAssignment,
 } from "./reducer";
 
 export default function Assignments() {
   
   const { cid } = useParams();
-  const [assignmentName, setAssignmentName] = useState("");
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
- 
   const dispatch = useDispatch();
+
   return (
     <div id="wd-assignments">
       <div>
-      
         <AssignmentControls
-          assignmentName={assignmentName}
-          assignmentCourse={`${cid}`}
-          setAssignmentName={setAssignmentName}
           addAssignment={() => {
-            console.log("Dispatching addAssignment with:", assignmentName, cid);
-            dispatch(addAssignment({ title: assignmentName, course: cid}));
-            setAssignmentName("");
+            dispatch(addAssignment({ course: cid}));
           }}
-
         />
-          
       </div>
       <br />
       <br />
@@ -71,8 +61,7 @@ export default function Assignments() {
             </div>
           </div>
         </li>
-        <p>Assignment Name: {assignmentName}</p>
-        <p>Course ID: {cid}</p>
+   
         <p>Number of assignments: {assignments.filter((assignment: any) => assignment.course === cid).length}</p>
         {assignments
           .filter((assignment: any) => assignment.course === cid)
@@ -105,14 +94,19 @@ export default function Assignments() {
                   </a>
                   <br />
                   <span style={{ color: "red" }}>Multiple Modules</span> |{" "}
-                  <b>Not available until</b> May6 at 12:00am |
+                  <b>Not available until</b>    {assignment.availableFromDate} | 
                   <br />
-                  <b>Due</b> May 13 at 11:59pm | 100 pts
+                  <b>Due</b> {assignment.dueDate} | {assignment.point} pts   
                 </div>
 
                 {/* 右边的Icon */}
                 <div className="icon-right">
-                  <AssignmentSectionButtons />
+                  <AssignmentSectionButtons 
+                  assignmentId={assignment._id}
+                  deleteAssignment={(assignmentId) => {
+                    dispatch(deleteAssignment(assignmentId))
+                  }}
+                  />
                 </div>
               </div>
             </li>

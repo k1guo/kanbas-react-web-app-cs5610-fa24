@@ -7,23 +7,30 @@ import ProtectedFaculty from "../../ProtectedFaculty";
 import { useNavigate, useParams } from "react-router";
 import AssignmentEditor from "./Editor";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addAssignment, editAssignment, updateAssignment } from "./reducer";
+import { useState } from "react";
 
 export default function AssignmentControls({
-  assignmentName,
-  assignmentCourse,
-  setAssignmentName,
+  // assignmentName,
+  // assignmentCourse,
+  // setAssignmentName,
   addAssignment,
 }: {
-  assignmentName: string;
-  assignmentCourse: string;
-  setAssignmentName: (title: string) => void;
+  // assignmentName: string;
+  // assignmentCourse: string;
+  // setAssignmentName: (title: string) => void;
   addAssignment: () => void;
 }) {
   const { cid } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleAddAssignmentButtonClick = () => {
-    const newId = new Date().getTime().toString();
-    navigate(`/Kanbas/Courses/${cid}/Assignments/${newId}`);
+    navigate(`/Kanbas/Courses/${cid}/Assignments/new`, {
+      state: { 
+        cid,}, // pass data
+    });
   };
 
   return (
@@ -59,15 +66,11 @@ export default function AssignmentControls({
               className="position-relative me-1"
               style={{ bottom: "1px" }}
             />
+      
             Assignment
           </button>
         </div>
       </ProtectedFaculty>
-      <AssignmentEditor
-           addAssignment={addAssignment}
-           assignmentName={assignmentName}
-           setAssignmentName={setAssignmentName}
-      />
     </div>
   );
 }

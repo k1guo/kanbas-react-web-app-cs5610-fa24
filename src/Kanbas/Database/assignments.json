@@ -6,7 +6,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A102",
@@ -15,7 +16,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A103",
@@ -24,7 +26,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A201",
@@ -33,7 +36,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A202",
@@ -42,7 +46,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A203",
@@ -51,7 +56,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A301",
@@ -69,7 +75,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A303",
@@ -78,7 +85,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A401",
@@ -87,7 +95,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A402",
@@ -96,7 +105,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A403",
@@ -105,7 +115,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A501",
@@ -114,7 +125,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A502",
@@ -123,7 +135,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A503",
@@ -132,7 +145,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A601",
@@ -141,7 +155,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A602",
@@ -150,7 +165,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A603",
@@ -159,7 +175,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A701",
@@ -168,7 +185,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A702",
@@ -177,7 +195,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A703",
@@ -186,7 +205,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A801",
@@ -195,7 +215,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A802",
@@ -204,7 +225,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A803",
@@ -213,7 +235,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A901",
@@ -222,7 +245,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A902",
@@ -231,7 +255,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A903",
@@ -240,7 +265,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1001",
@@ -249,7 +275,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1002",
@@ -258,7 +285,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1003",
@@ -267,7 +295,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1101",
@@ -276,7 +305,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1102",
@@ -285,7 +315,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1103",
@@ -294,7 +325,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1201",
@@ -303,7 +335,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1202",
@@ -312,7 +345,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1203",
@@ -321,7 +355,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1301",
@@ -330,7 +365,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1302",
@@ -339,7 +375,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1303",
@@ -348,7 +385,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1401",
@@ -357,7 +395,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1402",
@@ -366,7 +405,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1403",
@@ -375,7 +415,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1501",
@@ -384,7 +425,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1502",
@@ -393,7 +435,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1503",
@@ -402,7 +445,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1601",
@@ -411,7 +455,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1602",
@@ -420,7 +465,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1603",
@@ -429,7 +475,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1701",
@@ -438,7 +485,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1702",
@@ -447,7 +495,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1703",
@@ -456,7 +505,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1801",
@@ -465,7 +515,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1802",
@@ -474,7 +525,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1803",
@@ -483,7 +535,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1901",
@@ -492,7 +545,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1902",
@@ -501,7 +555,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A1903",
@@ -510,7 +565,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2001",
@@ -519,7 +575,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2002",
@@ -528,7 +585,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2003",
@@ -537,7 +595,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2101",
@@ -546,7 +605,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2102",
@@ -555,7 +615,8 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   },
   {
     "_id": "A2103",
@@ -564,6 +625,7 @@
     "description": "\nThe assignment is available online. \n\nSubmit a link to the landing page of your Web application running on Netlify. \n\nThe landing page should include the following: \n\n • Your full name and section \n • Links to each of the lab assignments \n • Link to the Kanbas application \n • Links to all relevant source code repositories \n\n The Kanbas application should include a link to navigate back to the landing page.",
     "point": 100,
     "dueDate": "2000-05-13",
-    "availableDate": "2000-05-06"
+    "availableFromDate": "2000-05-06",
+    "availableUntilDate": "2025-12-15"
   }
 ]

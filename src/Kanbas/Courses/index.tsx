@@ -11,7 +11,7 @@ import * as db from "../Database";
 
 export default function Courses({ courses }: { courses: any[] }) {
   const { cid } = useParams();
-  const [assignmentName, setAssignmentName] = useState("newAssignmentName");
+  const [assignmentName, setAssignmentName] = useState("");
   const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
   const [assignments, setAssignments] = useState<any[]>(db.assignments);
@@ -25,10 +25,7 @@ export default function Courses({ courses }: { courses: any[] }) {
     dueDate: "2000-05-13",
     availableDate: "2000-05-06",
   });
-  const addAssignment = () => {
-    const newAssignment = { ...assignment };
-    setAssignments([...assignments, { ...assignment, ...newAssignment }]);
-  };
+
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
@@ -50,11 +47,7 @@ export default function Courses({ courses }: { courses: any[] }) {
             <Route
               path="Assignments/:assignmentId"
               element={
-                <AssignmentEditor
-                  addAssignment={addAssignment}
-                  assignmentName={assignmentName}
-                  setAssignmentName={setAssignmentName}
-                />
+                <AssignmentEditor/>
               }
             />
             <Route path="People" element={<PeopleTable />} />

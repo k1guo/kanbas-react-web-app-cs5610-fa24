@@ -11,7 +11,8 @@ export default function ModuleControlButtons({
 }: {
   moduleId: string;
   deleteModule: (moduleId: string) => void;
-  editModule: (moduleId: string) => void }) {
+  editModule: (moduleId: string) => void;
+}) {
   return (
     <div className="float-end">
       <FaPencil

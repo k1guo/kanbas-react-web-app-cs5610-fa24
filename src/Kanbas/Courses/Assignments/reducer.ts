@@ -6,7 +6,7 @@ const initialState = {
 const assignmentsSlice = createSlice({
   name: "assignemnts",
   initialState,
-  // reducers 包含了3个 reducer 函数，分别用于添加、更新和编辑作业。
+  // reducers 包含了3个  reducer 函数，分别用于添加、更新和编辑作业。
   reducers: {
     addAssignment: (state, { payload: assignment }) => {
       const newAssignment: any = {
@@ -14,27 +14,35 @@ const assignmentsSlice = createSlice({
         _id: new Date().getTime().toString(),
         title: assignment.title,
         course: assignment.course,
-        point: 100,
-        dueDate: "2000-05-13",
-        availableDate: "2000-05-06"
+        description:assignment.description,
+        point: assignment.point,
+        dueDate: assignment.dueDate,
+        availableFromDate: assignment.availableFromDate,
+        availableUntilDate: assignment.availableUntilDate
       };
       state.assignments = [...state.assignments, newAssignment] as any;
     },
 
-
-
     updateAssignment: (state, { payload: assignment }) => {
       state.assignments = state.assignments.map((a: any) =>
-        a._id === assignment._id ? assignment : a
+        a._id === assignment._id ? { ...a, ...assignment } : a
       ) as any;
     },
+    // setAssignmentName(state,  { payload: assignment }) {
+    //   state.assignments.name = action.payload;
+    // },
+
     editAssignment: (state, { payload: assignmentId }) => {
       state.assignments = state.assignments.map((a: any) =>
         a._id === assignmentId ? { ...a, editing: true } : a
       ) as any;
     },
+    deleteAssignment: (state, { payload: assignmentId }) => {
+      state.assignments = state.assignments.filter(
+        (m: any) => m._id !== assignmentId);
+    },
   },
 });
-export const { addAssignment, updateAssignment, editAssignment } =
+export const { addAssignment, updateAssignment, editAssignment ,deleteAssignment} =
   assignmentsSlice.actions;
 export default assignmentsSlice.reducer;
