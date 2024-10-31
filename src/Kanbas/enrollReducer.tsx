@@ -16,9 +16,10 @@
 
 
 import { createSlice } from "@reduxjs/toolkit";
-import { enrollments } from "./Database";
+import { courses, enrollments } from "./Database";
 const initialState = {
   enrollments: enrollments,
+  courses: courses,
 };
 const enrollmentsSlice = createSlice({
   name: "assignemnts",
@@ -28,22 +29,27 @@ const enrollmentsSlice = createSlice({
       state.enrollments = action.payload;
     },
   
-    enrollCourse(state,  { payload: enrollment }) {
+    enrollCourse(state,  { payload: {enrollment,course} }) {
         const newEnrollment: any = {
             // 使用时间戳作为唯一ID
             _id: new Date().getTime().toString(),
            user: enrollment.user,
-           course: enrollment.course
+           course: course._id
           };
           state.enrollments = [...state.enrollments, newEnrollment] as any;
     },
   //  { "_id": "9", "user": "123", "course": "RS102" }
-    unenrollCourse(state, { payload: enrollment}) {
-      const enrollmentId = enrollment._id;
-      state.enrollments = state.enrollments.filter(
-        (e: any) => e._id !== enrollmentId);
-    },
+    unenrollCourse(state,  { payload: {enrollment,course} }) {
+      
+      const userEnrollments = state.enrollments.filter(
+        (e: any) => e.user === enrollment.user
+    );
 
+    // 再通过 course 过滤出最终的 enrollments
+    state.enrollments = userEnrollments.filter(
+        (e: any) => e.course !== course._id
+    );
+    },
 
     loadEnrollments(state) {
       const storedEnrollments = localStorage.getItem('enrollments');
@@ -53,13 +59,12 @@ const enrollmentsSlice = createSlice({
     }
 
 
-    // updateAssignment: (state, { payload: assignment }) => {
-    //     state.assignments = state.assignments.map((a: any) =>
-    //       a._id === assignment._id ? { ...a, ...assignment } : a
-    //     ) as any;
-    //   },
-
-
+ 
+    // updateModule: (state, { payload: module }) => {
+    //   state.modules = state.modules.map((m: any) =>
+    //     m._id === module._id ? module : m
+    //   ) as any;
+    // },
   },
 });
 
