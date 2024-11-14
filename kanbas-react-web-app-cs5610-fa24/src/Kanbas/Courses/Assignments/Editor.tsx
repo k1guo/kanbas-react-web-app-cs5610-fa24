@@ -1,179 +1,291 @@
+
+// Editor.tsx
+import {useParams} from "react-router";
+import * as db from "../../Database";
+import { Link } from "react-router-dom";
+import EditorControlButtons from "./EditorControlButtons";
+import { addAssignment, editAssignment, updateAssignment } from "./reducer";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 export default function AssignmentEditor() {
+  const { cid, assignmentId } = useParams();
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const assignment = assignments.find((a: any) => a._id === assignmentId);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [assignmentName, setAssignmentName] = useState(assignment?.title || "");
+  const [assignmentDescription, setAssignmentDescription] = useState(assignment?.description || "");
+  const [assignmentPoint, setAssignmentPoint] = useState(assignment?.point || 100);
+  const [assignmentDueDate, setAssignmentDueDate] = useState(assignment?.dueDate || "");
+  const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState(assignment?.availableFromDate || "");
+  const [assignmentAvailableUntilDate, setAssignmentAvailableUntilDate] = useState(assignment?.availableUntilDate || "");
+  const handleSave = () => {
+    if (assignmentId === "new") {
+      dispatch(addAssignment({ title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
+    } else {
+      dispatch(updateAssignment({ _id: assignmentId, title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
+    }
+    navigate(`/Kanbas/Courses/${cid}/Assignments`); 
+  };
+ 
   return (
-    <div id="wd-assignments-editor">
-      <label htmlFor="wd-name">Assignment Name</label>
-      <input id="wd-name" value="A1 - ENV + HTML" />
-      <br />
-      <br />
-      <textarea id="wd-description" cols={50} rows={10}>
-        The assignment is available online Submit a link to the landing page of
-        your Web application running on Netlify. The landing page should include
-        the following: Your full name and section Links to each of the lab
-        assignments Link to the Kanbas application Links to all relevant source
-        code repositories The Kanbas application should include a link to
-        navigate back to the landing page.
-      </textarea>
+    <form>
+      <div id="wd-assignments-editor" className="row mb-3">
 
-      <br />
-      <table>
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-points">Points</label>
-          </td>
-          <td>
-            <input id="wd-points" value={100} />
-          </td>
-        </tr>
+      {/* <p>Title: {assignmentName || "New Assignment"}</p>
+      <p>Description: {assignmentDescription || "New Description"}</p>
+      <p>Course: {cid}</p> 
+      <p>ID: {assignmentId === "new" ? "New Assignment" : assignmentId}</p> */}
+        <label htmlFor="wd-name" className="col col-form-label">
+          Assignment Name
+        </label>
+        <div className="mb-3">
+          <input
+            id="wd-name"
+            value={assignmentName|| ""} 
+            placeholder="New Assignment Name"
+            className="form-control col"
+            onChange={(e) => setAssignmentName(e.target.value)}
+          />
 
-        <tr />
-        {/* tr is new row, here is the row for assignment group*/}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-group"> Assignment Group</label>
-          </td>
-          <td>
-            <select id="wd-group">
-              <option value="COMEDY">...</option>
-              <option value="DRAMA">...</option>
-              <option selected value="SCIFI">
-                ASSIGNMENTS
-              </option>
-              <option value="FANTASY">...</option>
-            </select>
-          </td>
-        </tr>
-        {/* Complete on your own */}
-        <tr />
-        {/* tr is new row, here is the row for Display Grade As*/}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-display-grade-as"> Display Grade As</label>
-          </td>
-          <td>
-            <select id="wd-display-grade-as">
-              <option value="COMEDY">...</option>
-              <option value="DRAMA">...</option>
-              <option selected value="SCIFI">
-                Percentage
-              </option>
-              <option value="FANTASY">...</option>
-            </select>
-          </td>
-        </tr>
+        </div>
 
-        {/* tr is new row, here is the row for Submission Type*/}
-        <tr />
-        <tr>
-        <td align="right" valign="top">
-          <label htmlFor="wd-submission-type"> Submission Type</label>
-        </td>
-        <td>
-          <select id="wd-submission-type">
-            <option value="COMEDY">...</option>
-            <option value="DRAMA">...</option>
-            <option selected value="SCIFI">
-              Online
-            </option>
-            <option value="FANTASY">...</option>
-          </select>
-          <td align="left" valign="top">
-            <label>Online Entry Options</label>
-            <tr />
-            <input type="checkbox" name="check-genre" id="wd-text-entry" />
-            <label htmlFor="wd-text-entry">Text Entry</label>
-            <tr />
-            <input type="checkbox" name="check-genre" id="wd-website-url" />
-            <label htmlFor="wd-website-url">Website URL</label>
-            <tr />
-            <input
-              type="checkbox"
-              name="check-genre"
-              id="wd-media-recordings"
-            />
-            <label htmlFor="wd-media-recordings">Media Recordings</label>
-            <tr />
-            <input
-              type="checkbox"
-              name="check-genre"
-              id="wd-student-annotation"
-            />
-            <label htmlFor="wd-student-annotation">Student Annotation</label>
-            <tr />
-            <input type="checkbox" name="check-genre" id="wd-file-upload" />
-            <label htmlFor="wd-file-upload">File Uploads</label>
-            <tr />
-          </td>
-        </td>
-        </tr>
-        <tr />
+        <div>
+          <textarea
+            id="wd-description"
+            cols={50}
+            rows={15}
+            className="form-control ml-2 col"
+            placeholder="New Assignment Description"
+            onChange={(e) => setAssignmentDescription(e.target.value)}
+          >
+            {assignment && assignment.description || ""}
+          </textarea>
+        </div>
+      </div>
 
-        {/* two empty row */}
-
-        {/* assign assign to part */}
-
-        <tr>
-          <td align="right" valign="top">
-            Assign
-          </td>
-          <td>
-            <label htmlFor="wd-assign-to">Assign to </label>
-            <tr />
-
-            <input type="text" placeholder="Everyone" id="wd-assign-to" />
-            <tr />
-        
-            
-            <label htmlFor="wd-due-date">Due </label>
-            <tr />
-            <input type="date" id="wd-due-date" defaultValue="2000-05-13" />
-            <tr />
-            <td>
-              <label htmlFor="wd-available-from"> Available from </label>
-              <tr />
+      <div id="assignment-editScreen-downPart">
+        <div className="wd-assignemnt-editScreen-offset">
+          <div className="row mb-3">
+            <label htmlFor="wd-points" className="col-sm-2 col-form-label ">
+              Points{" "}
+            </label>
+            <div className="col-sm-10">
               <input
-                type="date"
-                id="wd-available-from"
-                defaultValue="2000-05-06"
+                type="number"
+                className="form-control"
+                id="wd-points"
+                value={assignmentPoint} 
+                onChange={(e) => setAssignmentPoint(Number(e.target.value) || 0)}
               />
-            </td>
-            <td>
-              <label htmlFor="wd-available-until"> Until </label>
-              <tr />
-              <input
-                type="date"
-                id="wd-available-until"
-                defaultValue="2000-05-20"
-              />
-            </td>
-          </td>
-        </tr>
-  
-      </table>
-      <hr />
-      <table align="right">
-        <tr>
-     
-          {/* 为什么向左靠齐 align我写的是右边啊 */}
-          <td align="left">
-            <button
-              id="wd-submit?"
-              onClick={() => alert("Cancel!")}
-              // type="button"
+            </div>{" "}
+          </div>
+
+          <div className="row mb-3">
+            <label htmlFor="wd-group" className="col-sm-2 col-form-label">
+              {" "}
+              Assignment Group
+            </label>
+            <div className="col-sm-10">
+              <select id="wd-group" className="form-select">
+                <option value="COMEDY">...</option>
+                <option value="DRAMA">...</option>
+                <option selected value="SCIFI">
+                  ASSIGNMENTS
+                </option>
+                <option value="FANTASY">...</option>
+              </select>
+            </div>{" "}
+          </div>
+
+          <div className="row mb-3">
+            <label htmlFor="wd-group" className="col-sm-2 col-form-label">
+              Display Grade As
+            </label>
+            <div className="col-sm-10">
+              <select id="wd-display-grade-as" className="form-select">
+                <option value="COMEDY">...</option>
+                <option value="DRAMA">...</option>
+                <option selected value="SCIFI">
+                  Percentage
+                </option>
+                <option value="FANTASY">...</option>
+              </select>
+            </div>{" "}
+          </div>
+
+          <div className="row mb-3">
+            <label
+              htmlFor="wd-submission-type"
+              className="col-sm-2 col-form-label"
             >
-              Cancel
+              Submission Type
+            </label>
+            <div className="col-sm-10">
+              <div className="form-control">
+                <select id="wd-submission-type" className="form-select">
+                  <option value="COMEDY">...</option>
+                  <option value="DRAMA">...</option>
+                  <option selected value="SCIFI">
+                    Percentage
+                  </option>
+                  <option value="FANTASY">...</option>
+                </select>
+                <label className="col col-form-label mt-2">
+                  {" "}
+                  Online Entry Options
+                </label>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="wd-text-entry"
+                  />
+                  <label className="form-check-label" htmlFor="wd-text-entry">
+                    Text Entry{" "}
+                  </label>{" "}
+                </div>{" "}
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="wd-website-url"
+                  />
+                  <label className="form-check-label" htmlFor="wd-website-url">
+                    Website URL{" "}
+                  </label>{" "}
+                </div>{" "}
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="wd-media-recordings"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="wd-media-recordings"
+                  >
+                    Media Recordings{" "}
+                  </label>{" "}
+                </div>{" "}
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="wd-student-annotation"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="wd-student-annotation"
+                  >
+                    Student Annotation{" "}
+                  </label>{" "}
+                </div>{" "}
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="wd-text-entry"
+                  />
+                  <label className="form-file-upload" htmlFor="wd-file-upload">
+                    File Uploads{" "}
+                  </label>{" "}
+                </div>{" "}
+              </div>
+            </div>{" "}
+          </div>
+
+          <div className="row mb-3">
+            <label htmlFor="wd-assign" className="col-sm-2 col-form-label">
+              Assign
+            </label>
+
+            <div className="col-sm-10">
+              <div className="form-control">
+                <label
+                  htmlFor="wd-assign-to"
+                  className="col-sm-2 col-form-label"
+                >
+                  Assign to
+                </label>
+                <div className="input-group mb-2">
+                  <button
+                    className="btn btn-secondary"
+                    type="button"
+                    id="wd-assign-button"
+                  >
+                    Everyone
+                  </button>
+                  <input
+                    type="text"
+                    id="wd-assign-to"
+                    className="form-control"
+                    // placeholder="Everyone"
+                  />
+                </div>
+
+                <label
+                  htmlFor="wd-due-date"
+                  className="col-sm-2 col-form-label"
+                >
+                  Due
+                </label>
+                <input
+                  type="date"
+                  id="wd-due-date"
+                  defaultValue={`${assignment && assignment.dueDate}`}
+                  className="form-control mb-3"
+                  onChange={(e) => setAssignmentDueDate(e.target.value)}
+                />
+
+                <div className="row">
+                  <div className="col-md-6">
+                    <label htmlFor="wd-available-from"> Available from </label>
+                    <input
+                      type="date"
+                      id="wd-available-from"
+                      defaultValue={`${assignment && assignment.availableFromDate}`}
+                      className="form-control"
+                      onChange={(e) => setAssignmentAvailableFromDate(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <label htmlFor="wd-available-until"> Until </label>
+                    <input
+                      type="date"
+                      id="wd-available-until"
+                      defaultValue={`${assignment && assignment.availableUntilDate}`}
+                      onChange={(e) => setAssignmentAvailableUntilDate(e.target.value)}
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div className="row">
+        <div className="col text-end">
+          <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
+            <button id="wd-cancel" className="btn btn-md btn-secondary me-1">
+              Cancel{" "}
             </button>
-            <button
-              id="wd-submit?"
-              onClick={() => alert("Save!")}
-              // type="button"
+          </Link>
+            <button id="wd-submit" className="btn btn-md btn-danger me-1"
+            onClick={ handleSave }
             >
               Save
             </button>
-          </td>
-        
-        </tr>
-        
-      </table>
-    </div>
+        </div>
+      </div>
+      </div>
+    </form>
   );
 }

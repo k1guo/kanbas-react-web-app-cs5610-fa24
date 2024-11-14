@@ -1,17 +1,20 @@
+import ProtectedFaculty from "../../ProtectedFaculty";
 import Modules from "../Modules";
 import CourseStatus from "./Status";
 export default function Home() {
   return (
-    <table id="wd-home">
-      <tr>
-        <td valign="top">
+    <div>
+      <div className="d-flex me-3" id="wd-home">
+        {/* me： margin-end */}
+        <div className="flex-fill me-3">
           <Modules />
-        </td>
-        <td valign="top">
+        </div>
+        <div className="d-none d-md-block">
+          <ProtectedFaculty>
           <CourseStatus />
-        </td>
-      </tr>
-    </table>
+          </ProtectedFaculty>
+        </div>
+      </div>
+    </div>
   );
 }
-
