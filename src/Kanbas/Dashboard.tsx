@@ -35,7 +35,6 @@ export default function Dashboard({
   );
 
 
-  // const { uid} = useParams();
   const dispatch = useDispatch();
   const [coursesView, setCoursesView] = useState("0");
 
@@ -49,15 +48,6 @@ export default function Dashboard({
     });
   };
 
-  const fetchEnrollments = async () => {
-    const data = await coursesClient.fetchAllEnrollments();
-    dispatch(setEnroll(data));
-  };
-  useEffect(() => {
-    fetchEnrollments();
-  }, []);
-
-
   const createEnroll = async (enrollId: any, user: any, course: any) => {
     const newEnrollment: any = {
       // 使用时间戳作为唯一ID
@@ -68,38 +58,34 @@ export default function Dashboard({
     const response = await enrollmentsClient.updateEnroll(newEnrollment);
     console.log(response.date)
     dispatch(addEnroll(newEnrollment));
+    fetchEnrollments();
   };
 
 
+  const fetchEnrollments = async () => {
+    const data = await coursesClient.fetchAllEnrollments();
+    dispatch(setEnroll(data));
+  };
+  useEffect(() => {
+    fetchEnrollments();
+  }, []);
+
 
   const handleUnenroll = async (userId: any, course: any) => {
-    console.log(userId, course)
-    // const deleteEnrollmentId = enrollments.filter(
-    //   (enrollment: any) => enrollment.user === userId && enrollment.course === course
-    // ).map((enrollment: any) => enrollment._id);
 
     const deleteEnrollmentId = enrollments
       .filter((enrollment: any) => enrollment.user === userId && enrollment.course === course)
       .map((enrollment: any) => String(enrollment._id));
 
-    // console.log(deleteEnrollment)
-    console.log(deleteEnrollmentId)
+
+    // console.log(deleteEnrollmentId)
     const response = await enrollmentsClient.deleteEnroll(deleteEnrollmentId);
-    
-    console.log(response.date)
+
+    // console.log(response.date)
     dispatch(deleteEnroll(deleteEnrollmentId));
+    fetchEnrollments();
   };
 
-  // const handleUnenroll = async (userId: any , course:any) => {
-  //   console.log(userId,course)
-
-  //   const enrollment1 = enrollments.find(
-  //       (e: any) => e.user === userId && e.course === course
-  //   );
-  //   console.log(enrollment1)
-  //   console.log(enrollment1.enrollId)
-  //   await enrollmentsClient.deleteEnroll(enrollment1.enrollId);
-  //   dispatch(deleteEnroll(enrollment1.enrollId));
 
 
   return (
@@ -159,10 +145,9 @@ export default function Dashboard({
               ? "Show My Courses"
               : ""}
 
-          <pre>{JSON.stringify(enrollments, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(enrollments, null, 2)}</pre>
 
-
-          <pre>{JSON.stringify(userEnrollments, null, 2)}</pre>
+          <pre>{JSON.stringify(userEnrollments, null, 2)}</pre> */}
 
           <button
             className="btn btn-primary float-end"
@@ -181,7 +166,7 @@ export default function Dashboard({
               <ul className="list-group">
                 <li key={course._id} className="list-group-item">
                   <span>{course.name}</span>
-                  {enrollments.some(
+                  {userEnrollments.some(
                     (enrollment: any) => enrollment.course === course._id
                   ) ? (
                     <button
@@ -215,7 +200,7 @@ export default function Dashboard({
           ) : coursesView === "all" ? (
             courses
               .filter((course) =>
-                enrollments.some(
+                userEnrollments.some(
                   (enrollment: any) => enrollment.course === course._id
                 )
               )
