@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { assignments } from "../../Database";
 const initialState = {
-  assignments: assignments,
+  assignments: [],
 };
 const assignmentsSlice = createSlice({
   name: "assignemnts",
   initialState,
   // reducers 包含了3个  reducer 函数，分别用于添加、更新和编辑作业。
   reducers: {
+    setAssignments: (state, action) => {
+      state.assignments = action.payload;
+    },
     addAssignment: (state, { payload: assignment }) => {
       const newAssignment: any = {
         // // 使用时间戳作为唯一ID
@@ -28,9 +31,6 @@ const assignmentsSlice = createSlice({
         a._id === assignment._id ? { ...a, ...assignment } : a
       ) as any;
     },
-    // setAssignmentName(state,  { payload: assignment }) {
-    //   state.assignments.name = action.payload;
-    // },
 
     editAssignment: (state, { payload: assignmentId }) => {
       state.assignments = state.assignments.map((a: any) =>
@@ -43,6 +43,6 @@ const assignmentsSlice = createSlice({
     },
   },
 });
-export const { addAssignment, updateAssignment, editAssignment ,deleteAssignment} =
+export const { setAssignments, addAssignment, updateAssignment, editAssignment ,deleteAssignment} =
   assignmentsSlice.actions;
 export default assignmentsSlice.reducer;

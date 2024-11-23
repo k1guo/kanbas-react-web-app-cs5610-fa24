@@ -1,5 +1,4 @@
 // index.tsx
-
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentControls from "./AssignmentControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
@@ -11,23 +10,50 @@ import * as db from "../../Database";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  setAssignments,
   addAssignment,
   deleteAssignment,
 } from "./reducer";
-
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
 export default function Assignments() {
   
   const { cid } = useParams();
+  const [assignmentName, setAssignmentName] = useState("");
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const dispatch = useDispatch();
 
+  const removeAssignment = async (assignmentId: string) => {
+    await assignmentsClient.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
+  // const saveAssignment = async (assignment: any) => {
+  //   await assignmentsClient.updateAssignment(assignment);
+  //   dispatch(updateAssignment(assignment));
+  // };
+
+  const createAssignmentForCourse = async () => {
+    if (!cid) return;
+    const newAssignment = { name: assignmentName, course: cid };
+    const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+    dispatch(addAssignment(assignment));
+  };
+  const fetchAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
   return (
     <div id="wd-assignments">
       <div>
         <AssignmentControls
-          addAssignment={() => {
-            dispatch(addAssignment({ course: cid}));
-          }}
+          // addAssignment={() => {
+          //   dispatch(addAssignment({ course: cid}));
+          // }}
+          addAssignment={createAssignmentForCourse}
         />
       </div>
       <br />
@@ -64,7 +90,7 @@ export default function Assignments() {
    
         {/* <p>Number of assignments: {assignments.filter((assignment: any) => assignment.course === cid).length}</p> */}
         {assignments
-          .filter((assignment: any) => assignment.course === cid)
+          // .filter((assignment: any) => assignment.course === cid)
           .map((assignment: any) => (
             
             <li className="wd-assignment-list-item list-group-item p-0 mb-0 fs-5 border-gray">
@@ -103,9 +129,10 @@ export default function Assignments() {
                 <div className="icon-right">
                   <AssignmentSectionButtons 
                   assignmentId={assignment._id}
-                  deleteAssignment={(assignmentId) => {
-                    dispatch(deleteAssignment(assignmentId))
-                  }}
+                  // deleteAssignment={(assignmentId) => {
+                  //   dispatch(deleteAssignment(assignmentId))
+                  // }}
+                  deleteAssignment={(assignmentId) => removeAssignment(assignmentId)}
                   />
                 </div>
               </div>

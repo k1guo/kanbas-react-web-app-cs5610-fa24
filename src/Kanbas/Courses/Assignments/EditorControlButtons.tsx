@@ -20,7 +20,7 @@ export default function EditorControlButtons({
           </Link>
           <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
             <button id="wd-submit" className="btn btn-md btn-danger me-1"
-            onClick={ addAssignment}
+            onClick={addAssignment}
             >
               Save
             </button>

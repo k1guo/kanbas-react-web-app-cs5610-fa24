@@ -1,11 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import CourseNavCard from "./CourseNavCard";
 import * as db from "./Database";
 import { useDispatch, useSelector } from "react-redux";
 import ProtectedFaculty from "./ProtectedFaculty";
 import ProtectedStudent from "./ProtectedStudent";
-import { enrollCourse, unenrollCourse } from "./enrollReducer";
+import { enrollCourse, loadEnrollments, unenrollCourse } from "./enrollReducer";
+import * as enrollmentsClient from "./Courses/People/client";
+import { setCourses } from "./enrollReducer";
+import * as userClient from "./Account/client";
+import * as coursesClient from "./Courses/client";
+import { addEnroll, deleteEnroll, setEnroll } from "./Courses/People/reducer";
+import { create } from "domain";
 
 export default function Dashboard({
   courses,
@@ -28,40 +34,73 @@ export default function Dashboard({
     (enrollment: any) => enrollment.user === currentUser._id
   );
 
-  // const [course, setCourse] = useState<any>({
-  //   _id: "0", name: "New Course", number: "New Number",
-  //   startDate: "2023-09-10", endDate: "2023-12-15",
-  //   image: "/images/reactjs.jpg", description: "New Description"
-  // });
 
-
+  // const { uid} = useParams();
   const dispatch = useDispatch();
   const [coursesView, setCoursesView] = useState("0");
 
+
   const toggleCoursesView = () => {
+
     setCoursesView((prev) => {
       if (prev === "none") return "all";
       if (prev === "all") return "my";
       return "none";
     });
   };
-  const handleEnroll = (enrollment: any, courseId: any) => {
-    dispatch(
-      enrollCourse({
-        enrollment: { user: currentUser._id },
-        course: { _id: courseId },
-      })
-    );
+
+  const fetchEnrollments = async () => {
+    const data = await coursesClient.fetchAllEnrollments();
+    dispatch(setEnroll(data));
+  };
+  useEffect(() => {
+    fetchEnrollments();
+  }, []);
+
+
+  const createEnroll = async (enrollId: any, user: any, course: any) => {
+    const newEnrollment: any = {
+      // 使用时间戳作为唯一ID
+      _id: enrollId,
+      user: user,
+      course: course,
+    };
+    const response = await enrollmentsClient.updateEnroll(newEnrollment);
+    console.log(response.date)
+    dispatch(addEnroll(newEnrollment));
   };
 
-  const handleUnenroll = (enrollment: any, courseId: any) => {
-    dispatch(
-      unenrollCourse({
-        enrollment: { user: currentUser._id },
-        course: { _id: courseId },
-      })
-    );
+
+
+  const handleUnenroll = async (userId: any, course: any) => {
+    console.log(userId, course)
+    // const deleteEnrollmentId = enrollments.filter(
+    //   (enrollment: any) => enrollment.user === userId && enrollment.course === course
+    // ).map((enrollment: any) => enrollment._id);
+
+    const deleteEnrollmentId = enrollments
+      .filter((enrollment: any) => enrollment.user === userId && enrollment.course === course)
+      .map((enrollment: any) => String(enrollment._id));
+
+    // console.log(deleteEnrollment)
+    console.log(deleteEnrollmentId)
+    const response = await enrollmentsClient.deleteEnroll(deleteEnrollmentId);
+    
+    console.log(response.date)
+    dispatch(deleteEnroll(deleteEnrollmentId));
   };
+
+  // const handleUnenroll = async (userId: any , course:any) => {
+  //   console.log(userId,course)
+
+  //   const enrollment1 = enrollments.find(
+  //       (e: any) => e.user === userId && e.course === course
+  //   );
+  //   console.log(enrollment1)
+  //   console.log(enrollment1.enrollId)
+  //   await enrollmentsClient.deleteEnroll(enrollment1.enrollId);
+  //   dispatch(deleteEnroll(enrollment1.enrollId));
+
 
   return (
     <div id="wd-dashboard">
@@ -108,16 +147,22 @@ export default function Dashboard({
       </ProtectedFaculty>
 
 
+
+
+
+
       <ProtectedStudent>
         <h5>
           {coursesView === "none"
             ? "Show All Courses"
             : coursesView === "all"
-            ? "Show My Courses"
-            : ""}
-          {/*     
-          <pre>{JSON.stringify(currentUser, null, 2)}</pre>
-          <pre>{JSON.stringify(userEnrollments, null, 2)}</pre>  */}
+              ? "Show My Courses"
+              : ""}
+
+          <pre>{JSON.stringify(enrollments, null, 2)}</pre>
+
+
+          <pre>{JSON.stringify(userEnrollments, null, 2)}</pre>
 
           <button
             className="btn btn-primary float-end"
@@ -136,20 +181,31 @@ export default function Dashboard({
               <ul className="list-group">
                 <li key={course._id} className="list-group-item">
                   <span>{course.name}</span>
-                  {userEnrollments.some(
+                  {enrollments.some(
                     (enrollment: any) => enrollment.course === course._id
                   ) ? (
                     <button
-                      // onClick={() => handleUnenroll((userEnrollments.course, course._id))}
+                      onClick={() => handleUnenroll(currentUser._id, course._id)}
                       className="btn btn-danger btn-sm float-end ms-2"
                     >
                       Unenroll
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleEnroll(currentUser._id, course._id)}
+
                       className="btn btn-success btn-sm float-end"
-                    >
+                      onClick={(event) => {
+                        event.preventDefault();
+                        createEnroll(
+                          Date.now().toString(),
+                          currentUser._id,
+                          course._id
+
+                        );
+
+                      }
+
+                      }   >
                       Enroll
                     </button>
                   )}
@@ -159,7 +215,7 @@ export default function Dashboard({
           ) : coursesView === "all" ? (
             courses
               .filter((course) =>
-                userEnrollments.some(
+                enrollments.some(
                   (enrollment: any) => enrollment.course === course._id
                 )
               )
@@ -188,7 +244,7 @@ export default function Dashboard({
         <hr />
       </ProtectedStudent>
 
-      
+
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>{" "}
       <hr />
       <div id="wd-dashboard-courses" className="row">
@@ -259,10 +315,11 @@ export default function Dashboard({
                         >
                           Edit
                         </button>
-                        </ProtectedFaculty>
+                      </ProtectedFaculty>
+
                     </div>
                   </Link>
-                
+
                 </div>
               </div>
             ))}

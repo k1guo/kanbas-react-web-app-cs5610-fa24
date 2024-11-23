@@ -1,15 +1,29 @@
 
 // Editor.tsx
-import {useParams} from "react-router";
+import { useParams } from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
 import EditorControlButtons from "./EditorControlButtons";
-import { addAssignment, editAssignment, updateAssignment } from "./reducer";
-import { useState } from "react";
+import { setAssignments, addAssignment, editAssignment, updateAssignment } from "./reducer";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
+import { title } from "process";
 
-export default function AssignmentEditor() {
+export default function AssignmentEditor(
+  // { assignmentName,
+  //   setAssignmentName,
+  //   addAssignment, 
+  // }:
+  //   {
+  //     assignmentName: string;
+  //     setAssignmentName: (name: string) => void;
+  //     addAssignment: () => void;
+  //   }
+
+) {
   const { cid, assignmentId } = useParams();
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const assignment = assignments.find((a: any) => a._id === assignmentId);
@@ -22,20 +36,52 @@ export default function AssignmentEditor() {
   const [assignmentDueDate, setAssignmentDueDate] = useState(assignment?.dueDate || "");
   const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState(assignment?.availableFromDate || "");
   const [assignmentAvailableUntilDate, setAssignmentAvailableUntilDate] = useState(assignment?.availableUntilDate || "");
-  const handleSave = () => {
-    if (assignmentId === "new") {
-      dispatch(addAssignment({ title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
-    } else {
-      dispatch(updateAssignment({ _id: assignmentId, title: assignmentName, course: cid, description: assignmentDescription, point:assignmentPoint, dueDate:assignmentDueDate, availableFromDate:assignmentAvailableFromDate, availableUntilDate:assignmentAvailableUntilDate}));
-    }
-    navigate(`/Kanbas/Courses/${cid}/Assignments`); 
+  
+  const createAssignmentForCourse = async () => {
+    if (!cid) return;
+    const newAssignment = { title: assignmentName, course: cid, description: assignmentDescription, point: assignmentPoint, dueDate: assignmentDueDate, availableFromDate: assignmentAvailableFromDate, availableUntilDate: assignmentAvailableUntilDate };
+    const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+    console.log("New Assignment:", assignment); // 检查返回值
+    dispatch(addAssignment(assignment));
   };
- 
+  
+  const saveAssignment = async (assignment: any) => {
+    // console.log("Params:", { cid, assignmentId ,title});
+
+    await assignmentsClient.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
+
+  const handleSave = async () => {
+    if (assignmentId === "new") {
+      // dispatch(addAssignment({ title: assignmentName, course: cid, description: assignmentDescription, point: assignmentPoint, dueDate: assignmentDueDate, availableFromDate: assignmentAvailableFromDate, availableUntilDate: assignmentAvailableUntilDate }));
+      await createAssignmentForCourse();
+
+    } else {
+       const updatedAssignment={ _id: assignmentId, title: assignmentName, course: cid, description: assignmentDescription, point: assignmentPoint, dueDate: assignmentDueDate, availableFromDate: assignmentAvailableFromDate, availableUntilDate: assignmentAvailableUntilDate };
+
+      console.log("Updated Assignment:", updatedAssignment);
+      await saveAssignment(updatedAssignment);
+      // await saveAssignment(assignment);
+      dispatch(updateAssignment(module));
+      
+    }
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
+  };
+
+  const fetchAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
   return (
     <form>
       <div id="wd-assignments-editor" className="row mb-3">
 
-      {/* <p>Title: {assignmentName || "New Assignment"}</p>
+        {/* <p>Title: {assignmentName || "New Assignment"}</p>
       <p>Description: {assignmentDescription || "New Description"}</p>
       <p>Course: {cid}</p> 
       <p>ID: {assignmentId === "new" ? "New Assignment" : assignmentId}</p> */}
@@ -45,7 +91,7 @@ export default function AssignmentEditor() {
         <div className="mb-3">
           <input
             id="wd-name"
-            value={assignmentName|| ""} 
+            value={assignmentName || ""}
             placeholder="New Assignment Name"
             className="form-control col"
             onChange={(e) => setAssignmentName(e.target.value)}
@@ -78,7 +124,7 @@ export default function AssignmentEditor() {
                 type="number"
                 className="form-control"
                 id="wd-points"
-                value={assignmentPoint} 
+                value={assignmentPoint}
                 onChange={(e) => setAssignmentPoint(Number(e.target.value) || 0)}
               />
             </div>{" "}
@@ -223,7 +269,7 @@ export default function AssignmentEditor() {
                     type="text"
                     id="wd-assign-to"
                     className="form-control"
-                    // placeholder="Everyone"
+                  // placeholder="Everyone"
                   />
                 </div>
 
@@ -272,19 +318,19 @@ export default function AssignmentEditor() {
         <hr />
 
         <div className="row">
-        <div className="col text-end">
-          <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
-            <button id="wd-cancel" className="btn btn-md btn-secondary me-1">
-              Cancel{" "}
-            </button>
-          </Link>
+          <div className="col text-end">
+            <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
+              <button id="wd-cancel" className="btn btn-md btn-secondary me-1">
+                Cancel{" "}
+              </button>
+            </Link>
             <button id="wd-submit" className="btn btn-md btn-danger me-1"
-            onClick={ handleSave }
+              onClick={handleSave}
             >
               Save
             </button>
+          </div>
         </div>
-      </div>
       </div>
     </form>
   );

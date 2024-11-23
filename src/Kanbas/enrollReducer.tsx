@@ -1,20 +1,3 @@
-// // reducer.js
-// const initialState = {
-//     courses: [],
-//     enrollments: [] // Track which courses a student is enrolled in
-//   };
-  
-//   const courseSlice = createSlice({
-//     name: "courses",
-//     initialState,
-    
-//   });
-  
-//   // Export actions
-  
-  
-
-
 import { createSlice } from "@reduxjs/toolkit";
 import { courses, enrollments } from "./Database";
 const initialState = {
