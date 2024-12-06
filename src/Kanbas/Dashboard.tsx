@@ -246,13 +246,13 @@ export default function Dashboard({
         > */}
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses
-            .filter((course) =>
-              enrollments.some(
-                (enrollment: any) =>
-                  enrollment.user === currentUser._id &&
-                  enrollment.course === course._id
-              )
-            )
+            // .filter((course) =>
+            //   enrollments.some(
+            //     (enrollment: any) =>
+            //       enrollment.user === currentUser._id &&
+            //       enrollment.course === course._id
+            //   )
+            // )
             .map((course) => (
               <div
                 className="wd-dashboard-course col"

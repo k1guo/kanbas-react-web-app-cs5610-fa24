@@ -38,7 +38,8 @@ export default function Kanbas() {
     // description: course.description,
     // image:"/images/reactjs.jpg",
     // }
-    const newCourse = await userClient.createCourse(course);
+    // const newCourse = await userClient.createCourse(course);
+    const newCourse = await courseClient.createCourse(course);
     setCourses((courses) => [
       ...courses,
       newCourse 
