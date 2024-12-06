@@ -2,23 +2,46 @@ import { FaUserCircle } from "react-icons/fa";
 // import * as db from "../../Database";
 import PeopleDetails from "./Details";
 import { Link } from "react-router-dom";
-// import { useParams } from "react-router";
-export default function PeopleTable({ users = [] }: { users?: any[] }) {
-  // const { cid } = useParams();
+import * as coursesClient from "../client";
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import * as userClient from "../../Account/client";
+import * as courseClient from "../../Courses/client";
 
-  // filter can get all info if they match filter requirement
-  // map can literate all course_enrollment, use db.users.find() to get all info
+export default function PeopleTable(
+  // { users = [] }: { users?: any[] }
+  { users: initialUsers = [] }: { users?: any[] }
+) {
 
-  // <pre>{JSON.stringify(enrolledUser, null, 2)}</pre>
-  // use above to print data in screen
-  // const { users, enrollments } = db;
+  const { cid } = useParams<{ cid: string }>(); 
+  const [users, setUsers] = useState<any[]>([]); 
+  const [currentUser, setCurrentUser] = useState<any>(null); 
 
-  // const course_enrollment = db.enrollments.filter(
-  //   (enroll) => enroll.course === cid
-  // );
-  // const enrolledUser = course_enrollment.map((enrollment) =>
-  //   db.users.find((userInfo) => userInfo._id === enrollment.user)
-  // );
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        // 获取当前登录用户的信息
+        const loggedInUser = await userClient.profile(); 
+        setCurrentUser(loggedInUser);
+
+        if (loggedInUser.role === "ADMIN") {
+          const allUsers = await userClient.findAllUsers(); 
+          setUsers(allUsers);
+        } else if (cid) {
+          const enrolledUsers = await courseClient.findUsersForCourse(cid); 
+          setUsers(enrolledUsers);
+        }
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers(); // 页面加载时调用
+  }, [cid]);
+
+  {JSON.stringify(cid, null, 2)}
+  {JSON.stringify(users, null, 2)}
+
 
   return (
     <div id="wd-people-table">
@@ -35,6 +58,11 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
           </tr>
         </thead>
         <tbody>
+
+        {/* {JSON.stringify(cid, null, 2)}
+        {/* {JSON.stringify(uid, null, 2)} */}
+{/* 
+         <pre>{JSON.stringify(users, null, 2)}</pre> */} 
           {users
             // .filter((usr) =>
             //   enrollments.some(

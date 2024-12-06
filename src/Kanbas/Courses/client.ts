@@ -34,6 +34,21 @@ export const fetchAllCourses = async () => {
     const { data } = await axiosWithCredentials.get(COURSES_API);
     return data;
 };
+
+// export const findUsersForCourse = async (courseId: any) => {
+//     const response = await axios.get(`${COURSES_API}/${courseId}/users`);
+//     return response.data;
+//    };
+   export const findUsersForCourse = async (courseId: any) => {
+    try {
+      const response = await axiosWithCredentials.get(`${COURSES_API}/${courseId}/users`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching users for course ${courseId}:`, error);
+      throw error;
+    }
+  };
+   
 export const deleteCourse = async (id: string) => {
     const { data } = await axiosWithCredentials.delete(`${COURSES_API}/${id}`);
     return data;
@@ -54,5 +69,4 @@ export const findAssignmentsForCourse = async (courseId: string) => {
         .get(`${COURSES_API}/${courseId}/assignments`);
     return response.data;
 };
-
 
