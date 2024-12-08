@@ -6,7 +6,6 @@ const initialState = {
 const assignmentsSlice = createSlice({
   name: "assignemnts",
   initialState,
-  // reducers 包含了3个  reducer 函数，分别用于添加、更新和编辑作业。
   reducers: {
     setAssignments: (state, action) => {
       state.assignments = action.payload;
@@ -25,6 +24,9 @@ const assignmentsSlice = createSlice({
       };
       state.assignments = [...state.assignments, newAssignment] as any;
     },
+
+
+
 
     updateAssignment: (state, { payload: assignment }) => {
       state.assignments = state.assignments.map((a: any) =>

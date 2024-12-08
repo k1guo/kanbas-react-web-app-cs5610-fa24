@@ -40,7 +40,7 @@ export default function AssignmentEditor(
   const createAssignmentForCourse = async () => {
     if (!cid) return;
     const newAssignment = { title: assignmentName, course: cid, description: assignmentDescription, point: assignmentPoint, dueDate: assignmentDueDate, availableFromDate: assignmentAvailableFromDate, availableUntilDate: assignmentAvailableUntilDate };
-    const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+    const assignment = await coursesClient.createAssignment(cid, newAssignment);
     console.log("New Assignment:", assignment); // 检查返回值
     dispatch(addAssignment(assignment));
   };
@@ -69,13 +69,13 @@ export default function AssignmentEditor(
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
 
-  const fetchAssignments = async () => {
-    const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
-    dispatch(setAssignments(assignments));
-  };
-  useEffect(() => {
-    fetchAssignments();
-  }, []);
+  // const fetchAssignments = async () => {
+  //   const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+  //   dispatch(setAssignments(assignments));
+  // };
+  // useEffect(() => {
+  //   fetchAssignments();
+  // }, []);
 
   return (
     <form>

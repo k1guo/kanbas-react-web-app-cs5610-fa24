@@ -16,6 +16,7 @@ import {
 } from "./reducer";
 import * as coursesClient from "../client";
 import * as assignmentsClient from "./client";
+import { createAssignment } from "../client";
 export default function Assignments() {
   
   const { cid } = useParams();
@@ -36,7 +37,10 @@ export default function Assignments() {
   const createAssignmentForCourse = async () => {
     if (!cid) return;
     const newAssignment = { name: assignmentName, course: cid };
-    const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+    console.log("Created New assignment:",newAssignment)
+    const assignment = await coursesClient.createAssignment(cid, newAssignment);
+    console.log("Created assignment:", assignment);
+
     dispatch(addAssignment(assignment));
   };
   const fetchAssignments = async () => {
